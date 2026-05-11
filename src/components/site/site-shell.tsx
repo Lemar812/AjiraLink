@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion, useScroll, useSpring } from "framer-motion";
 import { useEffect, useRef } from "react";
 import { useLenis } from "@/hooks/use-lenis";
+import { useScrollRestoration } from "@/hooks/use-scroll-restoration";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
 import { ScrollToTop } from "@/components/site/scroll-to-top";
@@ -14,6 +15,7 @@ type SiteShellProps = {
 };
 
 export function SiteShell({ children }: SiteShellProps) {
+  useScrollRestoration();
   useLenis();
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll();
