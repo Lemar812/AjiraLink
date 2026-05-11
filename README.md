@@ -48,6 +48,15 @@ npm run build
 
 The Next.js runtime is handled by `@netlify/plugin-nextjs`.
 
+Production deploys are triggered from GitHub Actions on every push to `main`. Add these repository secrets in GitHub:
+
+```txt
+NETLIFY_AUTH_TOKEN
+NETLIFY_SITE_ID
+```
+
+You can also trigger the same workflow manually from the GitHub Actions tab.
+
 ## GitHub Setup
 
 ```bash
