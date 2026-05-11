@@ -12,14 +12,16 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 const storageKey = "ajiralink-theme";
+const defaultTheme: Theme = "dark";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
-  const [theme, setTheme] = useState<Theme>("dark");
+  const [theme, setTheme] = useState<Theme>(defaultTheme);
 
   useEffect(() => {
     const savedTheme = window.localStorage.getItem(storageKey);
-    const initialTheme: Theme = savedTheme === "light" ? "light" : "dark";
+    const initialTheme: Theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : defaultTheme;
+    window.localStorage.setItem(storageKey, initialTheme);
     setTheme(initialTheme);
     document.documentElement.dataset.theme = initialTheme;
     setMounted(true);
