@@ -16,6 +16,10 @@ html {
   background: #061a3f;
 }
 
+html[data-theme="light"] {
+  background: #ffffff;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -28,6 +32,9 @@ body {
     "Segoe UI",
     sans-serif;
   overflow-x: hidden;
+  transition:
+    background-color 300ms ease,
+    color 300ms ease;
 }
 
 ::selection {
@@ -55,4 +62,99 @@ body {
 
 .mask-fade {
   mask-image: linear-gradient(to bottom, black 80%, transparent);
+}
+
+html[data-theme="light"] body {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  background:
+    radial-gradient(circle at 18% 8%, rgb(255 199 39 / 12%), transparent 28rem),
+    radial-gradient(circle at 88% 16%, rgb(10 61 145 / 12%), transparent 30rem), #ffffff;
+}
+
+html[data-theme="light"] .theme-shell {
+  background: #ffffff !important;
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .glass-panel {
+  border-color: rgb(10 61 145 / 14%);
+  background: linear-gradient(135deg, rgb(255 255 255 / 86%), rgb(255 255 255 / 68%));
+  box-shadow: 0 24px 70px rgb(10 61 145 / 12%);
+}
+
+html[data-theme="light"] .blue-grid {
+  background-image:
+    linear-gradient(rgb(10 61 145 / 7%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(10 61 145 / 7%) 1px, transparent 1px);
+}
+
+html[data-theme="light"] .bg-\[\#061a3f\],
+html[data-theme="light"] .bg-\[\#051532\],
+html[data-theme="light"] .bg-\[\#071f4d\] {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .bg-\[\#061a3f\]\/70,
+html[data-theme="light"] .bg-\[\#061a3f\]\/75,
+html[data-theme="light"] .bg-\[\#061a3f\]\/92,
+html[data-theme="light"] .bg-\[\#061a3f\]\/94,
+html[data-theme="light"] .bg-\[\#071f4d\]\/78 {
+  background-color: rgb(255 255 255 / 86%) !important;
+}
+
+html[data-theme="light"] .text-white {
+  color: #1a1a1a !important;
+}
+
+html[data-theme="light"] .text-white\/82,
+html[data-theme="light"] .text-white\/78,
+html[data-theme="light"] .text-white\/72,
+html[data-theme="light"] .text-white\/70,
+html[data-theme="light"] .text-white\/68,
+html[data-theme="light"] .text-white\/66,
+html[data-theme="light"] .text-white\/62,
+html[data-theme="light"] .text-white\/60,
+html[data-theme="light"] .text-white\/58,
+html[data-theme="light"] .text-white\/55,
+html[data-theme="light"] .text-white\/50,
+html[data-theme="light"] .text-white\/48,
+html[data-theme="light"] .text-white\/42 {
+  color: rgb(26 26 26 / 70%) !important;
+}
+
+html[data-theme="light"] .border-white\/18,
+html[data-theme="light"] .border-white\/16,
+html[data-theme="light"] .border-white\/15,
+html[data-theme="light"] .border-white\/14,
+html[data-theme="light"] .border-white\/12,
+html[data-theme="light"] .border-white\/11,
+html[data-theme="light"] .border-white\/10 {
+  border-color: rgb(10 61 145 / 14%) !important;
+}
+
+html[data-theme="light"] .bg-white\/16,
+html[data-theme="light"] .bg-white\/14,
+html[data-theme="light"] .bg-white\/12,
+html[data-theme="light"] .bg-white\/10,
+html[data-theme="light"] .bg-white\/9,
+html[data-theme="light"] .bg-white\/8,
+html[data-theme="light"] .bg-white\/7,
+html[data-theme="light"] .bg-white\/6,
+html[data-theme="light"] .bg-white\/\[0\.07\],
+html[data-theme="light"] .bg-white\/\[0\.06\],
+html[data-theme="light"] .bg-white\/\[0\.05\] {
+  background-color: rgb(10 61 145 / 6%) !important;
+}
+
+html[data-theme="light"] .theme-toggle {
+  border-color: rgb(10 61 145 / 14%) !important;
+  background-color: rgb(255 255 255 / 86%) !important;
+  color: #0a3d91 !important;
+}
+
+html[data-theme="light"] .scroll-top-button {
+  background-color: rgb(255 255 255 / 84%) !important;
+  color: #0a3d91 !important;
+  box-shadow: 0 18px 50px rgb(10 61 145 / 18%) !important;
 }

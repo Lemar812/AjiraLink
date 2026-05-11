@@ -1,5 +1,5 @@
 import type { MarketingPageConfig } from "@/components/site/marketing-page";
-import { images, pageCards, systemRoutes, teamValues } from "@/data/landing";
+import { contactDetails, images, pageCards, systemRoutes, teamValues } from "@/data/landing";
 
 export const pages = {
   about: {
@@ -9,7 +9,7 @@ export const pages = {
       "AjiraLink is a youth-focused digital employment and career development platform connecting students, graduates, and young professionals to opportunity, mentorship, and guidance.",
     image: images.community,
     primaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
-    secondaryCta: { label: "Partner With Us", href: "/institutions-partners" },
+    secondaryCta: { label: "Partner With Us", href: systemRoutes.login },
     sections: [
       {
         eyebrow: "Who we are",
@@ -53,7 +53,7 @@ export const pages = {
     description:
       "AjiraLink connects youth to guidance, mentorship, and career resources that help them move from interest to readiness.",
     image: images.mentor,
-    primaryCta: { label: "Explore Career Resources", href: systemRoutes.careerResources },
+    primaryCta: { label: "Access Career Resources", href: systemRoutes.careerResources },
     secondaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     sections: [
       {
@@ -71,7 +71,7 @@ export const pages = {
       "AjiraLink helps employers present opportunities to students, graduates, and young professionals while routing posting flows into the existing platform.",
     image: images.employer,
     primaryCta: { label: "Post an Opportunity", href: systemRoutes.postOpportunity },
-    secondaryCta: { label: "Employer Registration", href: systemRoutes.employerRegister },
+    secondaryCta: { label: "Register as Employer", href: systemRoutes.employerRegister },
     sections: [
       {
         eyebrow: "Employer value",
@@ -87,7 +87,7 @@ export const pages = {
     description:
       "AjiraLink supports institutions, funders, innovation hubs, and ecosystem partners with a trusted digital front door for youth opportunity.",
     image: images.workshop,
-    primaryCta: { label: "Contact Partnerships", href: "/contact" },
+    primaryCta: { label: "Partner With Us", href: systemRoutes.login },
     secondaryCta: { label: "See Impact", href: "/impact" },
     sections: [
       {
@@ -104,7 +104,7 @@ export const pages = {
     description:
       "AjiraLink tracks public momentum through users, youth reached, partners, and ecosystem growth while focusing on meaningful access.",
     image: images.community,
-    primaryCta: { label: "Partner With Us", href: "/institutions-partners" },
+    primaryCta: { label: "Partner With Us", href: systemRoutes.login },
     secondaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     sections: [
       {
@@ -192,7 +192,7 @@ export const pages = {
     description:
       "Reach out for partnerships, employer opportunities, institutional collaboration, support, or youth opportunity campaigns.",
     image: images.workshop,
-    primaryCta: { label: "Email AjiraLink", href: "mailto:hello@ajiralink.africa" },
+    primaryCta: { label: "Email AjiraLink", href: contactDetails.emailHref },
     secondaryCta: { label: "Post an Opportunity", href: systemRoutes.postOpportunity },
     sections: [
       {
@@ -216,13 +216,31 @@ export const pages = {
             title: "Partners",
             copy: "Start a partnership conversation with the AjiraLink team.",
             icon: "heartHandshake",
-            href: "mailto:hello@ajiralink.africa",
+            href: contactDetails.emailHref,
           },
           {
             title: "General",
             copy: "Contact AjiraLink for support, outreach, and collaboration requests.",
             icon: "mail",
-            href: "mailto:hello@ajiralink.africa",
+            href: contactDetails.emailHref,
+          },
+          {
+            title: "Location",
+            copy: contactDetails.location,
+            icon: "target",
+            href: "/contact",
+          },
+          {
+              title: "Instagram",
+              copy: "Follow AjiraLink Future Lab for opportunity updates and community stories.",
+              icon: "camera",
+              href: contactDetails.instagram,
+            },
+          {
+            title: "Facebook",
+            copy: "Connect with AjiraLink Future Lab across Facebook for announcements and outreach.",
+            icon: "users",
+            href: contactDetails.facebook,
           },
         ],
       },

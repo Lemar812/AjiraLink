@@ -1,7 +1,7 @@
-import { Mail, MapPin } from "lucide-react";
+import { Camera, Mail, MapPin, Share2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { navLinks, systemRoutes } from "@/data/landing";
+import { contactDetails, navLinks, systemRoutes } from "@/data/landing";
 
 export function Footer() {
   return (
@@ -27,12 +27,31 @@ export function Footer() {
             opportunity.
           </p>
           <div className="mt-6 grid gap-3 text-sm text-white/58">
+            <Link
+              href={contactDetails.emailHref}
+              className="flex items-center gap-2 transition hover:text-white"
+            >
+              <Mail size={16} className="text-[#FFC727]" /> {contactDetails.email}
+            </Link>
             <span className="flex items-center gap-2">
-              <Mail size={16} className="text-[#FFC727]" /> hello@ajiralink.africa
+              <MapPin size={16} className="text-[#FFC727]" /> {contactDetails.location}
             </span>
-            <span className="flex items-center gap-2">
-              <MapPin size={16} className="text-[#FFC727]" /> Built for African youth
-            </span>
+          </div>
+          <div className="mt-5 flex items-center gap-3">
+            <Link
+              href={contactDetails.instagram}
+              aria-label="AjiraLink Instagram"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
+            >
+              <Camera size={17} />
+            </Link>
+            <Link
+              href={contactDetails.facebook}
+              aria-label="AjiraLink Facebook"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
+            >
+              <Share2 size={17} />
+            </Link>
           </div>
         </div>
 
@@ -67,7 +86,7 @@ export function Footer() {
                 href={systemRoutes.employerRegister}
                 className="text-sm text-white/55 transition hover:text-white"
               >
-                Employer Registration
+                Register as Employer
               </Link>
               <Link
                 href={systemRoutes.postOpportunity}
@@ -93,7 +112,7 @@ export function Footer() {
                 href={systemRoutes.careerResources}
                 className="text-sm text-white/55 transition hover:text-white"
               >
-                Career Resources
+                Access Career Resources
               </Link>
             </div>
           </div>

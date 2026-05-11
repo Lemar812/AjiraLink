@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { ThemeToggle } from "@/components/site/theme-toggle";
 import { navLinks, systemRoutes } from "@/data/landing";
 import { cn } from "@/lib/utils";
 
@@ -102,6 +103,7 @@ export function Navbar() {
         </div>
 
         <div className="hidden items-center justify-end gap-2.5 lg:flex">
+          <ThemeToggle />
           {ctas.map((cta) => (
             <CtaLink key={cta.href} {...cta} />
           ))}
@@ -161,7 +163,8 @@ export function Navbar() {
                 </motion.div>
               ))}
             </div>
-            <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 sm:grid-cols-3">
+            <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 sm:grid-cols-[auto_1fr_1fr_1fr]">
+              <ThemeToggle className="h-11 w-11 justify-self-start" />
               {ctas.map((cta) => (
                 <CtaLink key={cta.href} {...cta} />
               ))}

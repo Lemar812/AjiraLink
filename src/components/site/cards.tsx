@@ -6,6 +6,7 @@ import {
   BookOpen,
   BriefcaseBusiness,
   Building2,
+  Camera,
   GraduationCap,
   Handshake,
   HeartHandshake,
@@ -29,6 +30,7 @@ export type IconName =
   | "book"
   | "briefcase"
   | "building"
+  | "camera"
   | "graduation"
   | "handshake"
   | "heartHandshake"
@@ -55,6 +57,7 @@ const icons: Record<IconName, LucideIcon> = {
   book: BookOpen,
   briefcase: BriefcaseBusiness,
   building: Building2,
+  camera: Camera,
   graduation: GraduationCap,
   handshake: Handshake,
   heartHandshake: HeartHandshake,

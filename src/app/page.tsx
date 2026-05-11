@@ -299,7 +299,7 @@ export default function Home() {
               existing backend platform.
             </p>
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href="/institutions-partners">Partner With Us</ButtonLink>
+              <ButtonLink href={systemRoutes.login}>Partner With Us</ButtonLink>
               <ButtonLink href="/for-employers" variant="secondary">
                 For Employers
               </ButtonLink>

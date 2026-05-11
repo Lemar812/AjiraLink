@@ -7,6 +7,7 @@ import { useEffect, useRef } from "react";
 import { useLenis } from "@/hooks/use-lenis";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
+import { ScrollToTop } from "@/components/site/scroll-to-top";
 
 type SiteShellProps = {
   children: React.ReactNode;
@@ -40,13 +41,14 @@ export function SiteShell({ children }: SiteShellProps) {
   }, []);
 
   return (
-    <div ref={containerRef} className="min-h-screen overflow-hidden bg-[#061a3f] text-white">
+    <div ref={containerRef} className="theme-shell min-h-screen overflow-hidden bg-[#061a3f] text-white">
       <motion.div
         className="fixed left-0 right-0 top-0 z-[60] h-1 origin-left bg-[#FFC727]"
         style={{ scaleX }}
       />
       <Navbar />
       {children}
+      <ScrollToTop />
       <Footer />
     </div>
   );

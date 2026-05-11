@@ -1,12 +1,22 @@
 import type { IconCardData } from "@/components/site/cards";
 
+export const ajiraSystemUrl = "https://system.ajiralink.co.tz/";
+
+export const contactDetails = {
+  email: "linkajira@gmail.com",
+  emailHref: "mailto:linkajira@gmail.com",
+  instagram: "https://www.instagram.com/ajiralink_futurelab/",
+  facebook: "https://www.facebook.com/ajiralink_futurelab/",
+  location: "Lusono House, nearby Nairobi Road, Arusha, Tanzania",
+} as const;
+
 export const systemRoutes = {
-  login: "/login",
-  youthRegister: "/register/youth",
-  employerRegister: "/register/employer",
-  opportunities: "/opportunities",
-  postOpportunity: "/employer/post-opportunity",
-  careerResources: "/career-resources",
+  login: ajiraSystemUrl,
+  youthRegister: ajiraSystemUrl,
+  employerRegister: ajiraSystemUrl,
+  opportunities: ajiraSystemUrl,
+  postOpportunity: ajiraSystemUrl,
+  careerResources: ajiraSystemUrl,
 } as const;
 
 export const navLinks = [
@@ -88,7 +98,7 @@ export const systemCards = [
     icon: "graduation",
   },
   {
-    title: "Employer Registration",
+    title: "Register as Employer",
     copy: "Join as an employer and connect with emerging talent across the ecosystem.",
     href: systemRoutes.employerRegister,
     icon: "building",
