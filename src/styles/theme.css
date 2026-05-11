@@ -1,0 +1,13 @@
+@theme {
+  --color-ajira-blue: #0a3d91;
+  --color-ajira-yellow: #ffc727;
+  --color-ajira-white: #ffffff;
+  --color-ajira-gray: #1a1a1a;
+  --color-ajira-night: #061a3f;
+
+  --breakpoint-xs: 30rem;
+  --breakpoint-3xl: 112rem;
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}

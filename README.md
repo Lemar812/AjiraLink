@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AjiraLink
 
-## Getting Started
+Premium Next.js landing page for an African youth-focused EdTech and employment platform.
 
-First, run the development server:
+## Stack
+
+- Next.js 15 App Router
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Framer Motion, GSAP, Lenis
+- Netlify deployment via `@netlify/plugin-nextjs`
+
+## Commands
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run lint
+npm run typecheck
+npm run format:check
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Local development runs at `http://localhost:3000`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```txt
+src/
+  app/          Next.js routes, layouts, global CSS
+  components/   Shared UI components
+  sections/     Page-level marketing sections
+  hooks/        Client hooks and browser integrations
+  lib/          Shared utilities
+  styles/       Tailwind theme extensions and design tokens
+  constants/    Brand and app constants
+  data/         Static landing-page content
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Netlify uses `netlify.toml`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The Next.js runtime is handled by `@netlify/plugin-nextjs`.
 
-## Deploy on Vercel
+## GitHub Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git remote add origin https://github.com/<owner>/<repo>.git
+git branch -M main
+git push -u origin main
+```
