@@ -1,6 +1,7 @@
-import { Camera, Mail, MapPin, Share2 } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { contactDetails, navLinks, systemRoutes } from "@/data/landing";
 
 export function Footer() {
@@ -41,16 +42,20 @@ export function Footer() {
             <Link
               href={contactDetails.instagram}
               aria-label="AjiraLink Instagram"
+              target="_blank"
+              rel="noopener noreferrer"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
             >
-              <Camera size={17} />
+              <FaInstagram aria-hidden="true" size={18} />
             </Link>
             <Link
               href={contactDetails.facebook}
               aria-label="AjiraLink Facebook"
+              target="_blank"
+              rel="noopener noreferrer"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
             >
-              <Share2 size={17} />
+              <FaFacebookF aria-hidden="true" size={16} />
             </Link>
           </div>
         </div>
