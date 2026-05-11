@@ -105,7 +105,7 @@ export function Navbar() {
         <div className="hidden items-center justify-end gap-2.5 lg:flex">
           <ThemeToggle />
           {ctas.map((cta) => (
-            <CtaLink key={cta.href} {...cta} />
+            <CtaLink key={cta.label} {...cta} />
           ))}
         </div>
 
@@ -166,7 +166,7 @@ export function Navbar() {
             <div className="mt-4 grid gap-2 border-t border-white/10 pt-4 sm:grid-cols-[auto_1fr_1fr_1fr]">
               <ThemeToggle className="h-11 w-11 justify-self-start" />
               {ctas.map((cta) => (
-                <CtaLink key={cta.href} {...cta} />
+                <CtaLink key={cta.label} {...cta} />
               ))}
             </div>
           </motion.div>

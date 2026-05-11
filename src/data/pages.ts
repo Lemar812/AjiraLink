@@ -231,11 +231,11 @@ export const pages = {
             href: "/contact",
           },
           {
-              title: "Instagram",
-              copy: "Follow AjiraLink Future Lab for opportunity updates and community stories.",
-              icon: "camera",
-              href: contactDetails.instagram,
-            },
+            title: "Instagram",
+            copy: "Follow AjiraLink Future Lab for opportunity updates and community stories.",
+            icon: "camera",
+            href: contactDetails.instagram,
+          },
           {
             title: "Facebook",
             copy: "Connect with AjiraLink Future Lab across Facebook for announcements and outreach.",

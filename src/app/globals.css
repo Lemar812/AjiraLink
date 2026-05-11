@@ -66,7 +66,7 @@ body {
 
 html[data-theme="light"] body {
   --background: #ffffff;
-  --foreground: #1a1a1a;
+  --foreground: #0a3d91;
   background:
     radial-gradient(circle at 18% 8%, rgb(255 199 39 / 12%), transparent 28rem),
     radial-gradient(circle at 88% 16%, rgb(10 61 145 / 12%), transparent 30rem), #ffffff;
@@ -74,7 +74,7 @@ html[data-theme="light"] body {
 
 html[data-theme="light"] .theme-shell {
   background: #ffffff !important;
-  color: #1a1a1a !important;
+  color: #0a3d91 !important;
 }
 
 html[data-theme="light"] .glass-panel {
@@ -95,16 +95,21 @@ html[data-theme="light"] .bg-\[\#071f4d\] {
   background-color: #ffffff !important;
 }
 
+html[data-theme="light"] .bg-\[\#0A3D91\] {
+  background-color: #eef5ff !important;
+}
+
 html[data-theme="light"] .bg-\[\#061a3f\]\/70,
 html[data-theme="light"] .bg-\[\#061a3f\]\/75,
 html[data-theme="light"] .bg-\[\#061a3f\]\/92,
 html[data-theme="light"] .bg-\[\#061a3f\]\/94,
-html[data-theme="light"] .bg-\[\#071f4d\]\/78 {
+html[data-theme="light"] .bg-\[\#071f4d\]\/78,
+html[data-theme="light"] .bg-\[\#061a3f\]\/58 {
   background-color: rgb(255 255 255 / 86%) !important;
 }
 
 html[data-theme="light"] .text-white {
-  color: #1a1a1a !important;
+  color: #0a3d91 !important;
 }
 
 html[data-theme="light"] .text-white\/82,
@@ -120,7 +125,7 @@ html[data-theme="light"] .text-white\/55,
 html[data-theme="light"] .text-white\/50,
 html[data-theme="light"] .text-white\/48,
 html[data-theme="light"] .text-white\/42 {
-  color: rgb(26 26 26 / 70%) !important;
+  color: rgb(10 61 145 / 72%) !important;
 }
 
 html[data-theme="light"] .border-white\/18,
@@ -144,7 +149,7 @@ html[data-theme="light"] .bg-white\/6,
 html[data-theme="light"] .bg-white\/\[0\.07\],
 html[data-theme="light"] .bg-white\/\[0\.06\],
 html[data-theme="light"] .bg-white\/\[0\.05\] {
-  background-color: rgb(10 61 145 / 6%) !important;
+  background-color: rgb(255 255 255 / 78%) !important;
 }
 
 html[data-theme="light"] .theme-toggle {
@@ -157,4 +162,39 @@ html[data-theme="light"] .scroll-top-button {
   background-color: rgb(255 255 255 / 84%) !important;
   color: #0a3d91 !important;
   box-shadow: 0 18px 50px rgb(10 61 145 / 18%) !important;
+}
+
+html[data-theme="light"] section > .absolute.inset-0 {
+  opacity: 0.95;
+}
+
+html[data-theme="light"]
+  .bg-\[radial-gradient\(circle_at_24\%_18\%\,rgba\(255\,199\,39\,0\.22\)\,transparent_28\%\)\,radial-gradient\(circle_at_82\%_18\%\,rgba\(10\,61\,145\,0\.95\)\,transparent_34\%\)\,linear-gradient\(135deg\,\#061a3f_0\%\,\#0A3D91_48\%\,\#061a3f_100\%\)\] {
+  background:
+    radial-gradient(circle at 24% 18%, rgb(255 199 39 / 18%), transparent 28%),
+    radial-gradient(circle at 82% 18%, rgb(10 61 145 / 12%), transparent 34%),
+    linear-gradient(135deg, #ffffff 0%, #f3f8ff 52%, #ffffff 100%) !important;
+}
+
+html[data-theme="light"]
+  .bg-\[radial-gradient\(circle_at_20\%_20\%\,rgba\(255\,199\,39\,0\.20\)\,transparent_26\%\)\,linear-gradient\(135deg\,\#061a3f_0\%\,\#0A3D91_48\%\,\#061a3f_100\%\)\] {
+  background:
+    radial-gradient(circle at 20% 20%, rgb(255 199 39 / 16%), transparent 26%),
+    linear-gradient(135deg, #ffffff 0%, #f2f7ff 48%, #ffffff 100%) !important;
+}
+
+html[data-theme="light"] .bg-gradient-to-t.from-\[\#061a3f\],
+html[data-theme="light"] .bg-gradient-to-br.from-\[\#061a3f\] {
+  background-image: linear-gradient(to top, rgb(255 255 255 / 92%), transparent) !important;
+}
+
+html[data-theme="light"] nav {
+  background-color: rgb(255 255 255 / 82%) !important;
+  border-color: rgb(10 61 145 / 14%) !important;
+  box-shadow: 0 18px 70px rgb(10 61 145 / 14%) !important;
+}
+
+html[data-theme="light"] nav a,
+html[data-theme="light"] nav button {
+  color: #0a3d91;
 }
