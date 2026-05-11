@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AjiraLink | Africa's Future Workforce Starts Here",
+  title: "AjiraLink | Where Talent Meets Opportunities",
   description:
-    "AjiraLink connects African youth to jobs, internships, mentorship, workshops, and career opportunities.",
+    "AjiraLink is a youth-focused digital employment and career development platform connecting students, graduates, and young professionals to jobs, internships, volunteer opportunities, field placements, mentorship, and career guidance.",
 };
 
 export default function RootLayout({
