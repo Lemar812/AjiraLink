@@ -1,8 +1,25 @@
 import { Mail, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram } from "react-icons/fa6";
 import { contactDetails, navLinks, systemRoutes } from "@/data/landing";
+
+function InstagramIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="none">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="5" stroke="currentColor" strokeWidth="2" />
+      <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2" />
+      <circle cx="17.25" cy="6.75" r="1.25" fill="currentColor" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor">
+      <path d="M14.2 8.2V6.7c0-.7.5-.9.9-.9h2.2V2.1L14.2 2C10.8 2 9.9 4.5 9.9 6.1v2.1H7.4V12h2.5v10h4.2V12h2.9l.4-3.8h-3.2Z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   return (
@@ -46,7 +63,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
             >
-              <FaInstagram aria-hidden="true" size={18} />
+              <InstagramIcon />
             </Link>
             <Link
               href={contactDetails.facebook}
@@ -55,7 +72,7 @@ export function Footer() {
               rel="noopener noreferrer"
               className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
             >
-              <FaFacebookF aria-hidden="true" size={16} />
+              <FacebookIcon />
             </Link>
           </div>
         </div>
