@@ -69,19 +69,23 @@ export function Navbar() {
         <Link
           href="/"
           aria-label="AjiraLink home"
-          className="group relative flex min-w-[150px] items-center rounded-full px-1.5 py-1"
+          className="group relative flex min-w-[132px] items-center gap-3 rounded-full px-1.5 py-1"
         >
-          <span className="absolute inset-0 rounded-full bg-[#FFC727]/0 blur-xl transition duration-300 group-hover:bg-[#FFC727]/16" />
-          <Image
-            src="/ajiralink-logo.svg"
-            alt="AjiraLink"
-            width={160}
-            height={42}
-            priority
-            className={cn(
-              "relative h-auto w-[142px] transition duration-300 group-hover:scale-[1.02] sm:w-[158px]",
-            )}
-          />
+          <span className="absolute -inset-1 rounded-full bg-[#FFC727]/0 blur-xl transition duration-300 group-hover:bg-[#FFC727]/14" />
+          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-white/7 ring-1 ring-white/10 transition duration-300 group-hover:ring-[#FFC727]/30 sm:h-12 sm:w-12">
+            <Image
+              src="/images/logos/ajiralink-logo-transparent.png"
+              alt="AjiraLink"
+              width={96}
+              height={96}
+              priority
+              sizes="48px"
+              className="h-10 w-10 object-contain transition duration-300 group-hover:scale-[1.04] sm:h-11 sm:w-11"
+            />
+          </span>
+          <span className="relative hidden text-lg font-black tracking-[-0.03em] text-white sm:block">
+            AjiraLink
+          </span>
         </Link>
 
         <div className="hidden items-center justify-center gap-7 xl:flex">

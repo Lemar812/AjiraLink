@@ -1,4 +1,5 @@
-import { Mail, MapPin, Sparkles } from "lucide-react";
+import { Mail, MapPin } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { navLinks, systemRoutes } from "@/data/landing";
 
@@ -7,11 +8,19 @@ export function Footer() {
     <footer className="border-t border-white/10 bg-[#051532] px-4 py-12 sm:px-6 lg:px-8">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.2fr]">
         <div>
-          <Link href="/" className="flex items-center gap-2">
-            <span className="grid h-10 w-10 place-items-center rounded-full bg-[#FFC727] text-[#0A3D91]">
-              <Sparkles size={18} />
+          <Link href="/" className="group relative inline-flex items-center gap-3">
+            <span className="absolute -inset-3 rounded-full bg-[#FFC727]/0 blur-2xl transition duration-300 group-hover:bg-[#FFC727]/10" />
+            <span className="relative grid h-14 w-14 place-items-center rounded-full bg-white/6 ring-1 ring-white/10">
+              <Image
+                src="/images/logos/ajiralink-logo-transparent.png"
+                alt="AjiraLink"
+                width={112}
+                height={112}
+                sizes="56px"
+                className="h-12 w-12 object-contain"
+              />
             </span>
-            <span className="text-xl font-black">AjiraLink</span>
+            <span className="relative text-2xl font-black tracking-[-0.03em] text-white">AjiraLink</span>
           </Link>
           <p className="mt-5 max-w-md leading-7 text-white/58">
             A youth-focused digital employment and career development platform connecting talent to verified
