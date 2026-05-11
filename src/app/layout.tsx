@@ -6,9 +6,9 @@ export const metadata: Metadata = {
   description:
     "AjiraLink is a youth-focused digital employment and career development platform connecting students, graduates, and young professionals to jobs, internships, volunteer opportunities, field placements, mentorship, and career guidance.",
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
+    icon: "/images/icons/favicon.ico",
+    shortcut: "/images/icons/favicon.ico",
+    apple: "/images/icons/favicon.ico",
   },
 };
 
