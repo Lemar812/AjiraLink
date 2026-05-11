@@ -11,11 +11,11 @@ export const systemRoutes = {
 
 export const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/about-us" },
+  { label: "About", href: "/about-us" },
   { label: "Opportunities", href: "/opportunities" },
-  { label: "Career Guidance", href: "/career-guidance" },
-  { label: "For Employers", href: "/for-employers" },
-  { label: "Institutions & Partners", href: "/institutions-partners" },
+  { label: "Career", href: "/career-guidance" },
+  { label: "Employers", href: "/for-employers" },
+  { label: "Partners", href: "/institutions-partners" },
   { label: "Impact", href: "/impact" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },

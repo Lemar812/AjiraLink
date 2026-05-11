@@ -1,0 +1,8 @@
+<svg width="214" height="56" viewBox="0 0 214 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="214" height="56" rx="16" fill="#0A3D91"/>
+  <circle cx="28" cy="28" r="14" fill="#FFC727"/>
+  <path d="M21.5 29.1L27 34.5L36 22" stroke="#0A3D91" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="52" y="35" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="800" letter-spacing="-0.4">AjiraLink</text>
+  <path d="M178 19H193C198 19 202 23 202 28C202 33 198 37 193 37H178" stroke="#FFC727" stroke-width="3" stroke-linecap="round"/>
+  <path d="M186 28H203" stroke="#FFC727" stroke-width="3" stroke-linecap="round"/>
+</svg>
