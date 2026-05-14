@@ -61,7 +61,7 @@ export function MarketingPage({ config }: { config: MarketingPageConfig }) {
             {section.points ? (
               <div className="mx-auto grid max-w-5xl gap-4 md:grid-cols-2">
                 {section.points.map((point) => (
-                  <div key={point} className="glass-panel rounded-[2rem] p-6" data-gsap-reveal>
+                  <div key={point} className="glass-panel rounded-4xl p-6" data-gsap-reveal>
                     <p className="leading-8 text-white/68">{point}</p>
                   </div>
                 ))}
