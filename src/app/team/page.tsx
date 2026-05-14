@@ -177,10 +177,10 @@ export default function TeamPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
                 Youth opportunity
               </p>
-              <h2 className="text-balance text-4xl font-black tracking-tight text-white sm:text-6xl">
+              <h2 className="text-balance text-4xl font-black tracking-tight text-[#ffffff] sm:text-6xl">
                 Built by a team committed to youth opportunity
               </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-white/66">
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(255,255,255,0.72)]">
                 Join AjiraLink and connect with a platform designed to make jobs, internships, mentorship, and
                 career pathways easier to find and easier to trust.
               </p>

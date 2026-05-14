@@ -12,7 +12,7 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue | null>(null);
 const storageKey = "ajiralink-theme";
-const defaultTheme: Theme = "dark";
+const defaultTheme: Theme = "light";
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);

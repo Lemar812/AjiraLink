@@ -23,17 +23,17 @@ export default function RootLayout({
       try {
         const key = "ajiralink-theme";
         const saved = window.localStorage.getItem(key);
-        const theme = saved === "light" || saved === "dark" ? saved : "dark";
+        const theme = saved === "light" || saved === "dark" ? saved : "light";
         window.localStorage.setItem(key, theme);
         document.documentElement.dataset.theme = theme;
       } catch {
-        document.documentElement.dataset.theme = "dark";
+        document.documentElement.dataset.theme = "light";
       }
     })();
   `;
 
   return (
-    <html lang="en" className="h-full antialiased" data-theme="dark" suppressHydrationWarning>
+    <html lang="en" className="h-full antialiased" data-theme="light" suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <ThemeProvider>{children}</ThemeProvider>
