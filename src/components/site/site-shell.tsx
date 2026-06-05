@@ -45,11 +45,11 @@ export function SiteShell({ children }: SiteShellProps) {
   return (
     <div ref={containerRef} className="theme-shell min-h-screen overflow-hidden bg-[#061a3f] text-white">
       <motion.div
-        className="fixed left-0 right-0 top-0 z-[60] h-1 origin-left bg-[#FFC727]"
+        className="fixed left-0 right-0 top-0 z-[110] h-1 origin-left bg-[#FFC727]"
         style={{ scaleX }}
       />
-      <Navbar />
       {children}
+      <Navbar />
       <ScrollToTop />
       <Footer />
     </div>

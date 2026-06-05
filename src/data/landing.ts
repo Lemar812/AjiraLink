@@ -5,9 +5,18 @@ export const ajiraSystemUrl = "https://system.ajiralink.co.tz/";
 export const contactDetails = {
   email: "linkajira@gmail.com",
   emailHref: "mailto:linkajira@gmail.com",
+  phone: "+255 610 550 408",
+  phoneHref: "tel:+255610550408",
+  whatsapp: "https://wa.me/255610550408",
+  whatsappLabel: "WhatsApp: +255 610 550 408",
   instagram: "https://www.instagram.com/ajiralink_futurelab/",
   facebook: "https://www.facebook.com/ajiralink_futurelab/",
-  location: "Lusono House, nearby Nairobi Road, Arusha, Tanzania",
+  youtube: "https://www.youtube.com/@AjiraLink",
+  socialHandle: "@ajiralink_futurelab",
+  youtubeHandle: "@AjiraLink",
+  postalAddress: "P.O. Box 1228",
+  cityCountry: "Arusha, Tanzania",
+  location: "Lusono House, nearby Nairobi Road, Arusha",
 } as const;
 
 export const systemRoutes = {
@@ -23,10 +32,11 @@ export const navLinks = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about-us" },
   { label: "Opportunities", href: "/opportunities" },
-  { label: "Career", href: "/career-guidance" },
-  { label: "Employers", href: "/for-employers" },
-  { label: "Partners", href: "/institutions-partners" },
+  { label: "Career Guidance", href: "/career-guidance" },
+  { label: "For Employers", href: "/for-employers" },
+  { label: "For Institutions & Partners", href: "/institutions-partners" },
   { label: "Impact", href: "/impact" },
+  { label: "Support Us", href: "/support-us" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];

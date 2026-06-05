@@ -61,10 +61,11 @@ export default function TeamPage() {
             <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
               AjiraLink Team
             </p>
-            <h1 className="text-balance max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
+            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
               Meet the Team Behind AjiraLink
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">{pageCopy}</p>
+            <ButtonLink href={systemRoutes.youthRegister} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#FFC727] px-5 py-2 text-sm font-black text-[#0A3D91] shadow-[0_18px_60px_rgba(255,199,39,0.26)] hover:bg-white">Join AjiraLink</ButtonLink>
 
             <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
               {[
@@ -91,7 +92,7 @@ export default function TeamPage() {
                 <div className="relative aspect-4/5 overflow-hidden rounded-[1.55rem] bg-ajira-night/58">
                   <Image
                     src={member.image}
-                    alt=""
+                    alt={member.alt}
                     fill
                     priority
                     sizes="(min-width: 1024px) 24vw, (min-width: 640px) 44vw, 92vw"
@@ -112,7 +113,7 @@ export default function TeamPage() {
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
               The builders
             </p>
-            <h2 className="text-balance text-4xl font-black tracking-tight text-white sm:text-6xl">
+            <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
               A compact team with product focus, ecosystem trust, and youth-first execution.
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/66">
@@ -177,7 +178,7 @@ export default function TeamPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
                 Youth opportunity
               </p>
-              <h2 className="text-balance text-4xl font-black tracking-tight text-ajira-white sm:text-6xl">
+              <h2 className="text-4xl font-black tracking-tight text-ajira-white sm:text-6xl">
                 Built by a team committed to youth opportunity
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(255,255,255,0.72)]">

@@ -53,27 +53,21 @@ export function Navbar() {
 
   return (
     <motion.header
-      className="fixed left-0 right-0 top-4 z-50 px-3 sm:top-6 sm:px-5"
+      className="fixed left-0 right-0 top-4 z-100 px-3 sm:top-6 sm:px-5"
       initial={{ opacity: 0, y: -22 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease: "easeOut" }}
     >
       <nav
         className={cn(
-          "mx-auto grid max-w-7xl grid-cols-[auto_1fr_auto] items-center gap-5 rounded-full border transition-all duration-300",
-          "bg-[#061a3f]/58 shadow-[0_18px_70px_rgba(0,0,0,0.22)] backdrop-blur-2xl",
-          scrolled
-            ? "border-white/18 px-3 py-2 shadow-[0_18px_80px_rgba(0,0,0,0.32)]"
-            : "border-white/11 px-3.5 py-2.5",
+          "navbar-shell mx-auto flex items-center justify-between px-4 py-2.5 rounded-full border",
+          "bg-ajira-night/86 shadow-[0_18px_70px_rgba(0,0,0,0.32)] backdrop-blur-2xl",
+          scrolled ? "border-white/18 shadow-[0_18px_80px_rgba(0,0,0,0.42)]" : "border-white/11",
         )}
       >
-        <Link
-          href="/"
-          aria-label="AjiraLink home"
-          className="group relative flex min-w-[132px] items-center gap-3 rounded-full px-1.5 py-1"
-        >
-          <span className="absolute -inset-1 rounded-full bg-[#FFC727]/0 blur-xl transition duration-300 group-hover:bg-[#FFC727]/14" />
-          <span className="relative grid h-11 w-11 place-items-center rounded-full bg-white/7 ring-1 ring-white/10 transition duration-300 group-hover:ring-[#FFC727]/30 sm:h-12 sm:w-12">
+        {/* LEFT: Logo */}
+        <Link href="/" aria-label="AjiraLink home" className="group flex items-center gap-2 shrink-0">
+          <span className="relative grid h-11 w-11 place-items-center overflow-hidden rounded-full bg-white p-1.5 shadow-[0_10px_28px_rgba(0,0,0,0.22)] ring-1 ring-[#FFC727]/35 transition duration-300 group-hover:ring-[#FFC727]/60 sm:h-12 sm:w-12">
             <Image
               src="/images/logos/ajiralink-logo-transparent.png"
               alt="AjiraLink"
@@ -81,20 +75,19 @@ export function Navbar() {
               height={96}
               priority
               sizes="48px"
-              className="h-10 w-10 object-contain transition duration-300 group-hover:scale-[1.04] sm:h-11 sm:w-11"
+              className="h-full w-full object-contain transition duration-300 group-hover:scale-[1.04]"
             />
           </span>
-          <span className="relative hidden text-lg font-black tracking-[-0.03em] text-white sm:block">
-            AjiraLink
-          </span>
+          <span className="hidden text-lg font-black tracking-[-0.03em] text-white sm:block">AjiraLink</span>
         </Link>
 
-        <div className="hidden items-center justify-center gap-7 xl:flex">
+        {/* CENTER: Nav links */}
+        <div className="hidden xl:flex items-center gap-4 min-w-0">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="group relative whitespace-nowrap py-2 text-[0.83rem] font-medium tracking-[-0.01em] text-white/68 transition duration-300 hover:text-white"
+              className="group relative whitespace-nowrap py-2 text-[0.74rem] font-medium tracking-[-0.01em] text-white/68 transition duration-300 hover:text-white 2xl:text-[0.8rem]"
             >
               {link.label}
               <span className="absolute -bottom-0.5 left-0 h-px w-full origin-left scale-x-0 rounded-full bg-[#FFC727] transition-transform duration-300 group-hover:scale-x-100" />
@@ -102,13 +95,15 @@ export function Navbar() {
           ))}
         </div>
 
-        <div className="hidden items-center justify-end gap-2.5 lg:flex">
+        {/* RIGHT: actions */}
+        <div className="hidden lg:flex items-center gap-2.5 whitespace-nowrap">
           <ThemeToggle />
           {ctas.map((cta) => (
             <CtaLink key={cta.label} {...cta} />
           ))}
         </div>
 
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           aria-label="Toggle navigation"
@@ -123,7 +118,7 @@ export function Navbar() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="fixed inset-0 top-0 z-[-1] bg-[#061a3f]/94 backdrop-blur-2xl lg:hidden"
+            className="fixed inset-0 top-0 z-[-1] bg-ajira-night/94 backdrop-blur-2xl lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -138,7 +133,7 @@ export function Navbar() {
       <AnimatePresence>
         {open ? (
           <motion.div
-            className="mx-auto mt-4 max-w-7xl overflow-hidden rounded-[2rem] border border-white/14 bg-white/[0.07] p-4 shadow-2xl shadow-black/30 backdrop-blur-2xl lg:hidden"
+            className="mx-auto mt-4 max-w-7xl overflow-hidden rounded-4xl border border-white/14 bg-white/[0.07] p-4 shadow-2xl shadow-black/30 backdrop-blur-2xl lg:hidden"
             initial={{ opacity: 0, y: -12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.98 }}

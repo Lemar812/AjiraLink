@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { LoginSystemPopup } from "@/components/site/login-system-popup";
 import { ThemeProvider } from "@/components/site/theme-provider";
 import "./globals.css";
 
@@ -36,7 +37,10 @@ export default function RootLayout({
     <html lang="en" className="h-full antialiased" data-theme="light" suppressHydrationWarning>
       <body className="min-h-full flex flex-col">
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <LoginSystemPopup />
+        </ThemeProvider>
       </body>
     </html>
   );

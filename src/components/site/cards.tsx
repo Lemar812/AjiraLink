@@ -76,7 +76,7 @@ export function FeatureCard({ card, index = 0 }: { card: IconCardData; index?: n
   const Icon = card.icon ? icons[card.icon] : undefined;
   const content = (
     <motion.article
-      className="group glass-panel relative min-h-[260px] overflow-hidden rounded-[2rem] p-7"
+      className="group glass-panel relative min-h-35 overflow-hidden rounded-4xl p-7"
       initial={{ opacity: 0, y: 34 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -86,13 +86,17 @@ export function FeatureCard({ card, index = 0 }: { card: IconCardData; index?: n
       <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
         <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[#FFC727]/24 blur-3xl" />
       </div>
-      {Icon ? (
-        <div className="relative grid h-14 w-14 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]">
-          <Icon size={25} />
+      <div className="relative grid grid-cols-[auto_1fr] items-start gap-4">
+        {Icon ? (
+          <div className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]">
+            <Icon size={25} />
+          </div>
+        ) : null}
+        <div className="min-w-0">
+          <h3 className="text-2xl font-bold text-white">{card.title}</h3>
+          <p className="mt-3 leading-7 text-white/62">{card.copy}</p>
         </div>
-      ) : null}
-      <h3 className="relative mt-8 text-2xl font-bold text-white">{card.title}</h3>
-      <p className="relative mt-4 leading-7 text-white/62">{card.copy}</p>
+      </div>
     </motion.article>
   );
 
@@ -116,7 +120,7 @@ export function TestimonialCard({
 }) {
   return (
     <motion.article
-      className="glass-panel rounded-[2rem] p-7"
+      className="glass-panel rounded-4xl p-7"
       initial={{ opacity: 0, y: 34 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

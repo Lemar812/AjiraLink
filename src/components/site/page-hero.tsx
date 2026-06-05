@@ -25,7 +25,7 @@ export function PageHero({ eyebrow, title, copy, image, primaryCta, secondaryCta
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.28em] text-[#FFC727]">{eyebrow}</p>
-          <h1 className="text-balance max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
+          <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight text-white sm:text-7xl">
             {title}
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">{copy}</p>

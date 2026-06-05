@@ -1,4 +1,4 @@
-import { Mail, MapPin } from "lucide-react";
+import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { contactDetails, navLinks, systemRoutes } from "@/data/landing";
@@ -21,6 +21,14 @@ function FacebookIcon() {
   );
 }
 
+function YouTubeIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-[18px] w-[18px]" fill="currentColor">
+      <path d="M21.6 7.2a3 3 0 0 0-2.1-2.1C17.6 4.6 12 4.6 12 4.6s-5.6 0-7.5.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .4 4.8 3 3 0 0 0 2.1 2.1c1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.4-4.8ZM10 15.3V8.7l5.7 3.3L10 15.3Z" />
+    </svg>
+  );
+}
+
 export function Footer() {
   return (
     <footer className="border-t border-white/10 bg-[#051532] px-4 py-12 sm:px-6 lg:px-8">
@@ -28,14 +36,14 @@ export function Footer() {
         <div>
           <Link href="/" className="group relative inline-flex items-center gap-3">
             <span className="absolute -inset-3 rounded-full bg-[#FFC727]/0 blur-2xl transition duration-300 group-hover:bg-[#FFC727]/10" />
-            <span className="relative grid h-14 w-14 place-items-center rounded-full bg-white/6 ring-1 ring-white/10">
+            <span className="relative grid h-14 w-14 place-items-center overflow-hidden rounded-full bg-white p-2 ring-1 ring-[#FFC727]/35">
               <Image
                 src="/images/logos/ajiralink-logo-transparent.png"
                 alt="AjiraLink"
                 width={112}
                 height={112}
                 sizes="56px"
-                className="h-12 w-12 object-contain"
+                className="h-full w-full object-contain"
               />
             </span>
             <span className="relative text-2xl font-black tracking-[-0.03em] text-white">AjiraLink</span>
@@ -46,16 +54,57 @@ export function Footer() {
           </p>
           <div className="mt-6 grid gap-3 text-sm text-white/58">
             <Link
+              href={contactDetails.whatsapp}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition hover:text-white"
+            >
+              <Phone size={16} className="text-[#FFC727]" /> Phone: {contactDetails.phone}
+            </Link>
+            <Link
               href={contactDetails.emailHref}
               className="flex items-center gap-2 transition hover:text-white"
             >
-              <Mail size={16} className="text-[#FFC727]" /> {contactDetails.email}
+              <Mail size={16} className="text-[#FFC727]" /> Email: {contactDetails.email}
+            </Link>
+            <p className="flex items-center gap-2">
+              <MessageCircle size={16} className="text-[#FFC727]" /> Facebook & Instagram:{" "}
+              {contactDetails.socialHandle}
+            </p>
+            <Link
+              href={contactDetails.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 transition hover:text-white"
+            >
+              <span className="text-[#FFC727]">
+                <YouTubeIcon />
+              </span>{" "}
+              YouTube: {contactDetails.youtubeHandle}
             </Link>
             <span className="flex items-center gap-2">
-              <MapPin size={16} className="text-[#FFC727]" /> {contactDetails.location}
+              <MapPin size={16} className="text-[#FFC727]" /> Office Location: {contactDetails.location}
             </span>
           </div>
           <div className="mt-5 flex items-center gap-3">
+            <Link
+              href={contactDetails.whatsapp}
+              aria-label="AjiraLink WhatsApp"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
+            >
+              <MessageCircle size={18} />
+            </Link>
+            <Link
+              href={contactDetails.youtube}
+              aria-label="AjiraLink YouTube"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="grid h-10 w-10 place-items-center rounded-full border border-white/12 bg-white/7 text-white/70 transition hover:-translate-y-0.5 hover:border-[#FFC727]/40 hover:text-[#FFC727]"
+            >
+              <YouTubeIcon />
+            </Link>
             <Link
               href={contactDetails.instagram}
               aria-label="AjiraLink Instagram"
