@@ -215,11 +215,15 @@ function IconTile({
         >
           <Icon size={compact ? 21 : 24} />
         </motion.span>
-        <h3 className={`partners-heading ${compact ? "text-base" : "text-xl"} font-black leading-tight tracking-tight text-slate-950 dark:text-white`}>
+        <h3
+          className={`partners-heading ${compact ? "text-base" : "text-xl"} font-black leading-tight tracking-tight text-slate-950 dark:text-white`}
+        >
           {title}
         </h3>
       </div>
-      <p className={`partners-body ${compact ? "text-sm leading-6" : "leading-7"} text-slate-700 dark:text-slate-300`}>
+      <p
+        className={`partners-body ${compact ? "text-sm leading-6" : "leading-7"} text-slate-700 dark:text-slate-300`}
+      >
         {copy}
       </p>
     </div>
@@ -271,170 +275,172 @@ export function ForInstitutionsPartnersPageContent() {
     <SiteShell>
       <style>{themeSafetyStyles}</style>
       <main className="partners-page">
-      <section className="relative overflow-hidden px-4 pb-12 pt-44 sm:px-6 sm:pt-48 lg:px-8">
-        <div className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
-          <Image
-            src={images.workshop}
-            alt="Institutions and partners collaborating on youth career readiness"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[54%_center]"
-          />
-        </div>
-        <div className="about-hero-overlay absolute inset-0" />
-        <div className="about-hero-gradient absolute inset-0" />
-        <div className="home-hero-glow absolute inset-0" />
-        <div className="home-hero-fade absolute inset-x-0 bottom-0 h-44" />
+        <section className="relative overflow-hidden px-4 pb-12 pt-44 sm:px-6 sm:pt-48 lg:px-8">
+          <div className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
+            <Image
+              src={images.workshop}
+              alt="Institutions and partners collaborating on youth career readiness"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-[54%_center]"
+            />
+          </div>
+          <div className="about-hero-overlay absolute inset-0" />
+          <div className="about-hero-gradient absolute inset-0" />
+          <div className="home-hero-glow absolute inset-0" />
+          <div className="home-hero-fade absolute inset-x-0 bottom-0 h-44" />
 
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] xl:gap-14">
+          <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] xl:gap-14">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, ease: "easeOut" }}
+            >
+              <p className="about-hero-label mb-5 text-xs font-bold uppercase tracking-[0.26em] text-[#FFC727]">
+                PARTNERS
+              </p>
+              <h1 className="about-hero-title max-w-4xl text-5xl font-black leading-[0.98] tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
+                Partner With AjiraLink to Prepare Youth for the Future of Work
+              </h1>
+              <p className="about-hero-body mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">
+                AjiraLink works with schools, universities, training institutions, NGOs, companies, and
+                youth-focused organizations to strengthen the bridge between education, career readiness, and
+                employment.
+              </p>
+              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+                <ButtonLink href="/contact">Become a Partner</ButtonLink>
+                <ButtonLink href="/contact" variant="secondary" className="home-hero-secondary-cta">
+                  Contact Us
+                </ButtonLink>
+              </div>
+            </motion.div>
+
+            <PartnershipEcosystemPanel />
+          </div>
+        </section>
+
+        <section className={sectionSpacing}>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="PARTNERSHIP AREAS"
+              title="How we collaborate with institutions and partners"
+              copy="AjiraLink builds partnerships that connect youth to career guidance, practical experience, mentorship, opportunities, and long-term employability support."
+            />
+            <motion.div
+              className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
+              variants={fadeUpContainer}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-80px" }}
+            >
+              {partnershipAreas.map(({ title, copy, icon: Icon }) => (
+                <motion.article
+                  key={title}
+                  className="partners-card group relative min-h-60 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 shadow-[0_24px_70px_rgba(10,61,145,0.12)] backdrop-blur-2xl transition dark:border-white/15 dark:bg-white/10 dark:shadow-[0_24px_80px_rgba(0,0,0,0.22)]"
+                  variants={fadeUpItem}
+                  whileHover={{
+                    y: -8,
+                    scale: 1.012,
+                    boxShadow: "0 28px 90px rgba(10,61,145,0.18)",
+                  }}
+                >
+                  <IconTile title={title} copy={copy} icon={Icon} />
+                </motion.article>
+              ))}
+            </motion.div>
+          </div>
+        </section>
+
+        <section className={sectionSpacing}>
+          <div className="mx-auto max-w-7xl">
+            <div className="partners-soft-panel overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white/80 p-6 shadow-[0_28px_90px_rgba(10,61,145,0.14)] backdrop-blur-2xl dark:border-white/15 dark:bg-white/10 lg:p-8">
+              <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+                <div>
+                  <p className="partners-label mb-3 text-xs font-bold uppercase tracking-[0.24em] text-amber-600 dark:text-amber-400">
+                    Partnership targets
+                  </p>
+                  <h2 className="partners-heading text-4xl font-black leading-tight tracking-tight text-slate-950 dark:text-white sm:text-5xl">
+                    Building a stronger opportunity network
+                  </h2>
+                  <p className="partners-body mt-4 text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">
+                    AjiraLink&apos;s strategic plan targets partnerships with institutions and employers,
+                    including companies, NGOs, and universities, while the working plan targets 50 new
+                    partnerships by the end of 2026.
+                  </p>
+                </div>
+                <motion.div
+                  className="grid gap-4 sm:grid-cols-2"
+                  variants={fadeUpContainer}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, margin: "-80px" }}
+                >
+                  {partnershipTargets.map(({ title, copy, icon: Icon }) => (
+                    <motion.article
+                      key={`${title}-${copy}`}
+                      className="partners-card rounded-3xl border border-slate-200/70 bg-white/85 p-5 dark:border-white/15 dark:bg-white/10"
+                      variants={fadeUpItem}
+                      whileHover={{ y: -6 }}
+                    >
+                      <div className="mb-4 flex items-center gap-3">
+                        <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91]">
+                          <Icon size={22} />
+                        </span>
+                        <h3 className="partners-heading text-2xl font-black text-slate-950 dark:text-white">
+                          {title}
+                        </h3>
+                      </div>
+                      <p className="partners-body text-sm font-semibold leading-6 text-slate-700 dark:text-slate-300">
+                        {copy}
+                      </p>
+                    </motion.article>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className={networkSectionSpacing}>
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              eyebrow="OUR PARTNER NETWORK"
+              title="Organizations connected to the AjiraLink ecosystem"
+              copy="AjiraLink grows through collaboration with institutions, organizations, companies, and youth-focused partners working to expand access to opportunity."
+            />
+            <LogoMarquee />
+          </div>
+        </section>
+
+        <section className={sectionSpacing}>
           <motion.div
+            className="partners-soft-panel mx-auto grid max-w-7xl items-center gap-7 overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white/80 p-6 shadow-[0_30px_90px_rgba(10,61,145,0.18)] backdrop-blur-2xl dark:border-white/15 dark:bg-white/10 lg:grid-cols-[1fr_auto] lg:p-8"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.75, ease: "easeOut" }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <p className="about-hero-label mb-5 text-xs font-bold uppercase tracking-[0.26em] text-[#FFC727]">
-              PARTNERS
-            </p>
-            <h1 className="about-hero-title max-w-4xl text-5xl font-black leading-[0.98] tracking-tight text-slate-950 dark:text-white sm:text-6xl lg:text-7xl">
-              Partner With AjiraLink to Prepare Youth for the Future of Work
-            </h1>
-            <p className="about-hero-body mt-5 max-w-3xl text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">
-              AjiraLink works with schools, universities, training institutions, NGOs, companies, and
-              youth-focused organizations to strengthen the bridge between education, career readiness, and
-              employment.
-            </p>
-            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <div className="relative z-10">
+              <p className="partners-label mb-3 text-xs font-bold uppercase tracking-[0.24em] text-amber-600 dark:text-amber-400">
+                Take action
+              </p>
+              <h2 className="partners-heading text-3xl font-black tracking-tight text-slate-950 dark:text-white sm:text-4xl">
+                Ready to build youth opportunity pathways with AjiraLink?
+              </h2>
+              <p className="partners-body mt-3 max-w-3xl leading-7 text-slate-700 dark:text-slate-300">
+                Partner with AjiraLink to support career guidance, practical experience, institutional
+                collaboration, and youth employment access across Tanzania and beyond.
+              </p>
+            </div>
+            <div className="relative z-10 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href="/contact">Become a Partner</ButtonLink>
-              <ButtonLink href="/contact" variant="secondary" className="home-hero-secondary-cta">
+              <ButtonLink href="/contact" variant="secondary" className="about-final-secondary">
                 Contact Us
               </ButtonLink>
             </div>
           </motion.div>
-
-          <PartnershipEcosystemPanel />
-        </div>
-      </section>
-
-      <section className={sectionSpacing}>
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="PARTNERSHIP AREAS"
-            title="How we collaborate with institutions and partners"
-            copy="AjiraLink builds partnerships that connect youth to career guidance, practical experience, mentorship, opportunities, and long-term employability support."
-          />
-          <motion.div
-            className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
-            variants={fadeUpContainer}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-80px" }}
-          >
-            {partnershipAreas.map(({ title, copy, icon: Icon }) => (
-              <motion.article
-                key={title}
-                className="partners-card group relative min-h-60 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 shadow-[0_24px_70px_rgba(10,61,145,0.12)] backdrop-blur-2xl transition dark:border-white/15 dark:bg-white/10 dark:shadow-[0_24px_80px_rgba(0,0,0,0.22)]"
-                variants={fadeUpItem}
-                whileHover={{
-                  y: -8,
-                  scale: 1.012,
-                  boxShadow: "0 28px 90px rgba(10,61,145,0.18)",
-                }}
-              >
-                <IconTile title={title} copy={copy} icon={Icon} />
-              </motion.article>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      <section className={sectionSpacing}>
-        <div className="mx-auto max-w-7xl">
-          <div className="partners-soft-panel overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white/80 p-6 shadow-[0_28px_90px_rgba(10,61,145,0.14)] backdrop-blur-2xl dark:border-white/15 dark:bg-white/10 lg:p-8">
-            <div className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-              <div>
-                <p className="partners-label mb-3 text-xs font-bold uppercase tracking-[0.24em] text-amber-600 dark:text-amber-400">
-                  Partnership targets
-                </p>
-                <h2 className="partners-heading text-4xl font-black leading-tight tracking-tight text-slate-950 dark:text-white sm:text-5xl">
-                  Building a stronger opportunity network
-                </h2>
-                <p className="partners-body mt-4 text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">
-                  AjiraLink&apos;s strategic plan targets partnerships with institutions and employers,
-                  including companies, NGOs, and universities, while the working plan targets 50 new
-                  partnerships by the end of 2026.
-                </p>
-              </div>
-              <motion.div
-                className="grid gap-4 sm:grid-cols-2"
-                variants={fadeUpContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-80px" }}
-              >
-                {partnershipTargets.map(({ title, copy, icon: Icon }) => (
-                  <motion.article
-                    key={`${title}-${copy}`}
-                    className="partners-card rounded-3xl border border-slate-200/70 bg-white/85 p-5 dark:border-white/15 dark:bg-white/10"
-                    variants={fadeUpItem}
-                    whileHover={{ y: -6 }}
-                  >
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91]">
-                        <Icon size={22} />
-                      </span>
-                      <h3 className="partners-heading text-2xl font-black text-slate-950 dark:text-white">{title}</h3>
-                    </div>
-                    <p className="partners-body text-sm font-semibold leading-6 text-slate-700 dark:text-slate-300">
-                      {copy}
-                    </p>
-                  </motion.article>
-                ))}
-              </motion.div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className={networkSectionSpacing}>
-        <div className="mx-auto max-w-7xl">
-          <SectionHeader
-            eyebrow="OUR PARTNER NETWORK"
-            title="Organizations connected to the AjiraLink ecosystem"
-            copy="AjiraLink grows through collaboration with institutions, organizations, companies, and youth-focused partners working to expand access to opportunity."
-          />
-          <LogoMarquee />
-        </div>
-      </section>
-
-      <section className={sectionSpacing}>
-        <motion.div
-          className="partners-soft-panel mx-auto grid max-w-7xl items-center gap-7 overflow-hidden rounded-[2rem] border border-slate-200/70 bg-white/80 p-6 shadow-[0_30px_90px_rgba(10,61,145,0.18)] backdrop-blur-2xl dark:border-white/15 dark:bg-white/10 lg:grid-cols-[1fr_auto] lg:p-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
-        >
-          <div className="relative z-10">
-            <p className="partners-label mb-3 text-xs font-bold uppercase tracking-[0.24em] text-amber-600 dark:text-amber-400">
-              Take action
-            </p>
-            <h2 className="partners-heading text-3xl font-black tracking-tight text-slate-950 dark:text-white sm:text-4xl">
-              Ready to build youth opportunity pathways with AjiraLink?
-            </h2>
-            <p className="partners-body mt-3 max-w-3xl leading-7 text-slate-700 dark:text-slate-300">
-              Partner with AjiraLink to support career guidance, practical experience, institutional
-              collaboration, and youth employment access across Tanzania and beyond.
-            </p>
-          </div>
-          <div className="relative z-10 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href="/contact">Become a Partner</ButtonLink>
-            <ButtonLink href="/contact" variant="secondary" className="about-final-secondary">
-              Contact Us
-            </ButtonLink>
-          </div>
-        </motion.div>
-      </section>
+        </section>
       </main>
     </SiteShell>
   );

@@ -1,5 +1,32 @@
 "use client";
-import { BadgeCheck, BookOpenCheck, BrainCircuit, BriefcaseBusiness, Building2, CheckCircle2, ClipboardCheck, Compass, Handshake, HeartHandshake, LineChart, Mail, MapPin, Megaphone, MessageSquareText, MonitorSmartphone, Network, Phone, Rocket, Route, Send, ShieldCheck, Sparkles, TrendingUp, Users, WandSparkles } from "lucide-react";
+import {
+  BadgeCheck,
+  BookOpenCheck,
+  BrainCircuit,
+  BriefcaseBusiness,
+  Building2,
+  CheckCircle2,
+  ClipboardCheck,
+  Compass,
+  Handshake,
+  HeartHandshake,
+  LineChart,
+  Mail,
+  MapPin,
+  Megaphone,
+  MessageSquareText,
+  MonitorSmartphone,
+  Network,
+  Phone,
+  Rocket,
+  Route,
+  Send,
+  ShieldCheck,
+  Sparkles,
+  TrendingUp,
+  Users,
+  WandSparkles,
+} from "lucide-react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
@@ -574,7 +601,11 @@ export function ContactPageContent() {
       }
     } catch (err) {
       console.error(err);
-      setSubmitError(err instanceof Error ? err.message : "A network error occurred. Please check your connection and try again.");
+      setSubmitError(
+        err instanceof Error
+          ? err.message
+          : "A network error occurred. Please check your connection and try again.",
+      );
     } finally {
       setIsSending(false);
     }

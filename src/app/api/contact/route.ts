@@ -29,7 +29,8 @@ ${message}`;
 
     // Environment-driven email routing
     const formspreeFormId = process.env.FORMSPREE_FORM_ID;
-    const formspreeUrl = process.env.FORMSPREE_URL || (formspreeFormId ? `https://formspree.io/f/${formspreeFormId}` : null);
+    const formspreeUrl =
+      process.env.FORMSPREE_URL || (formspreeFormId ? `https://formspree.io/f/${formspreeFormId}` : null);
     const resendApiKey = process.env.RESEND_API_KEY;
 
     if (formspreeUrl) {
@@ -86,11 +87,11 @@ ${message}`;
       console.warn("Neither RESEND_API_KEY nor FORMSPREE_FORM_ID/FORMSPREE_URL is set in environment.");
       return NextResponse.json(
         { error: "Server Configuration Error: Email API Key or Formspree ID is not configured." },
-        { status: 500 }
+        { status: 500 },
       );
     }
-} catch (error) {
-  const err = error instanceof Error ? error : new Error(String(error));
-  return NextResponse.json({ error: err.message || "Internal Server Error" }, { status: 500 });
-}
+  } catch (error) {
+    const err = error instanceof Error ? error : new Error(String(error));
+    return NextResponse.json({ error: err.message || "Internal Server Error" }, { status: 500 });
+  }
 }

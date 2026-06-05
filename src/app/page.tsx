@@ -170,7 +170,12 @@ function AccordionGroup({ eyebrow, title, copy, items, defaultOpen = 0 }: Accord
       data-gsap-reveal
     >
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#FFC727]">{eyebrow}</p>
-      <h2 className={cn("text-3xl font-semibold tracking-tight sm:text-4xl", isLight ? "text-slate-950" : "text-white")}>
+      <h2
+        className={cn(
+          "text-3xl font-semibold tracking-tight sm:text-4xl",
+          isLight ? "text-slate-950" : "text-white",
+        )}
+      >
         {title}
       </h2>
       <p className={cn("mt-3 leading-7", isLight ? "text-slate-700" : "text-slate-300")}>{copy}</p>

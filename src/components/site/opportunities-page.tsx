@@ -80,15 +80,7 @@ const steps = [
 
 const safeSectionSpacing = "scroll-mt-40 px-4 pb-16 pt-32 sm:px-6 md:pt-36 lg:px-8 lg:pt-40";
 
-function SectionHeader({
-  eyebrow,
-  title,
-  copy,
-}: {
-  eyebrow: string;
-  title: string;
-  copy: string;
-}) {
+function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#FFC727]">{eyebrow}</p>
@@ -125,9 +117,7 @@ export function OpportunitiesPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            <p className="mb-5 text-xs font-bold uppercase tracking-[0.26em] text-[#FFC727]">
-              Opportunities
-            </p>
+            <p className="mb-5 text-xs font-bold uppercase tracking-[0.26em] text-[#FFC727]">Opportunities</p>
             <h1 className="home-hero-strong max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
               Explore Opportunities That Move Your Career Forward
             </h1>
@@ -137,7 +127,11 @@ export function OpportunitiesPageContent() {
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <ButtonLink href={systemRoutes.opportunities}>Browse Opportunities</ButtonLink>
-              <ButtonLink href={systemRoutes.youthRegister} variant="secondary" className="home-hero-secondary-cta">
+              <ButtonLink
+                href={systemRoutes.youthRegister}
+                variant="secondary"
+                className="home-hero-secondary-cta"
+              >
                 Create Your Profile
               </ButtonLink>
             </div>
@@ -157,8 +151,8 @@ export function OpportunitiesPageContent() {
                 One place for practical career access.
               </h2>
               <p className="about-card-copy mt-2 text-sm leading-5">
-                AjiraLink brings opportunity discovery, youth profiles, applications, and career growth into
-                a trusted pathway.
+                AjiraLink brings opportunity discovery, youth profiles, applications, and career growth into a
+                trusted pathway.
               </p>
             </div>
             <div className="relative mt-4 grid grid-cols-2 gap-2.5">
@@ -279,7 +273,11 @@ export function OpportunitiesPageContent() {
           </div>
           <div className="relative z-10 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={systemRoutes.youthRegister}>Create Your Profile</ButtonLink>
-            <ButtonLink href={systemRoutes.opportunities} variant="secondary" className="about-final-secondary">
+            <ButtonLink
+              href={systemRoutes.opportunities}
+              variant="secondary"
+              className="about-final-secondary"
+            >
               Browse Opportunities
             </ButtonLink>
           </div>

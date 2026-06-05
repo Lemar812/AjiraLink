@@ -86,15 +86,7 @@ const ecosystemItems = [
   },
 ] as const;
 
-function SectionHeader({
-  eyebrow,
-  title,
-  copy,
-}: {
-  eyebrow: string;
-  title: string;
-  copy?: string;
-}) {
+function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
     <div className="mx-auto mb-8 max-w-3xl text-center">
       <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-[#FFC727]">{eyebrow}</p>
@@ -144,7 +136,14 @@ function EcosystemPanel() {
             <div className="flex items-start gap-3">
               <motion.span
                 className="grid h-8 w-8 shrink-0 place-items-center rounded-xl bg-[#FFC727] text-[#0A3D91] shadow-[0_10px_24px_rgba(255,199,39,0.28)] transition group-hover:scale-105"
-                animate={{ y: [0, -2, 0], boxShadow: ["0 10px 24px rgba(255,199,39,0.18)", "0 14px 34px rgba(255,199,39,0.3)", "0 10px 24px rgba(255,199,39,0.18)"] }}
+                animate={{
+                  y: [0, -2, 0],
+                  boxShadow: [
+                    "0 10px 24px rgba(255,199,39,0.18)",
+                    "0 14px 34px rgba(255,199,39,0.3)",
+                    "0 10px 24px rgba(255,199,39,0.18)",
+                  ],
+                }}
                 transition={{ duration: 3.6, repeat: Infinity, ease: "easeInOut" }}
               >
                 <Icon size={17} />
@@ -186,18 +185,13 @@ export function AboutUsPageContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
           >
-            <p className="about-hero-label mb-5 text-xs font-bold uppercase tracking-[0.26em]">
-              About Us
-            </p>
+            <p className="about-hero-label mb-5 text-xs font-bold uppercase tracking-[0.26em]">About Us</p>
             <h1 className="about-hero-title max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
               About AjiraLink
             </h1>
             <div className="mt-5 max-w-3xl">
               {aboutParagraphs.map((paragraph) => (
-                <p
-                  key={paragraph}
-                  className="about-hero-body mb-4 text-base leading-7 last:mb-0 sm:text-lg"
-                >
+                <p key={paragraph} className="about-hero-body mb-4 text-base leading-7 last:mb-0 sm:text-lg">
                   {paragraph}
                 </p>
               ))}

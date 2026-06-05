@@ -65,7 +65,12 @@ export default function TeamPage() {
               Meet the Team Behind AjiraLink
             </h1>
             <p className="mt-7 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">{pageCopy}</p>
-            <ButtonLink href={systemRoutes.youthRegister} className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#FFC727] px-5 py-2 text-sm font-black text-[#0A3D91] shadow-[0_18px_60px_rgba(255,199,39,0.26)] hover:bg-white">Join AjiraLink</ButtonLink>
+            <ButtonLink
+              href={systemRoutes.youthRegister}
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#FFC727] px-5 py-2 text-sm font-black text-[#0A3D91] shadow-[0_18px_60px_rgba(255,199,39,0.26)] hover:bg-white"
+            >
+              Join AjiraLink
+            </ButtonLink>
 
             <div className="mt-10 grid max-w-xl gap-3 sm:grid-cols-2">
               {[
