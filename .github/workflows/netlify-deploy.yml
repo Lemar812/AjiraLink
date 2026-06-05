@@ -39,4 +39,11 @@ jobs:
           npm run typecheck
 
       - name: Deploy production site
+        if: env.NETLIFY_AUTH_TOKEN != '' && env.NETLIFY_SITE_ID != ''
         run: npx netlify-cli@latest deploy --build --prod --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
+
+      - name: Netlify Git deploy fallback
+        if: env.NETLIFY_AUTH_TOKEN == '' || env.NETLIFY_SITE_ID == ''
+        run: |
+          echo "Netlify CLI secrets are not configured for this workflow."
+          echo "Production deployment is expected to be handled by the connected Netlify Git integration."
