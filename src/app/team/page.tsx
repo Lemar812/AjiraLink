@@ -10,6 +10,18 @@ const pageCopy =
 
 export const metadata = createPageMetadata("Team", pageCopy);
 
+const teamCtaThemeStyles = `
+  html[data-theme="light"] .team-final-cta-title,
+  html[data-theme="dark"] .team-final-cta-title {
+    color: #ffffff !important;
+  }
+
+  html[data-theme="light"] .team-final-cta-copy,
+  html[data-theme="dark"] .team-final-cta-copy {
+    color: rgb(226 232 240 / 86%) !important;
+  }
+`;
+
 const teamMembers = [
   {
     name: "Baltazary Anitheti Twati",
@@ -52,6 +64,7 @@ const imageSizes = "(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw";
 export default function TeamPage() {
   return (
     <SiteShell>
+      <style>{teamCtaThemeStyles}</style>
       <section className="relative overflow-hidden px-4 pb-20 pt-36 sm:px-6 sm:pt-40 lg:px-8">
         <div className="absolute inset-0 blue-grid opacity-25" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,199,39,0.20),transparent_26%),linear-gradient(135deg,#061a3f_0%,#0A3D91_48%,#061a3f_100%)]" />
@@ -183,10 +196,10 @@ export default function TeamPage() {
               <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
                 Youth opportunity
               </p>
-              <h2 className="text-4xl font-black tracking-tight text-ajira-white sm:text-6xl">
+              <h2 className="team-final-cta-title text-4xl font-black tracking-tight text-white sm:text-6xl">
                 Built by a team committed to youth opportunity
               </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-[rgba(255,255,255,0.72)]">
+              <p className="team-final-cta-copy mt-6 max-w-2xl text-lg leading-8 text-slate-200/85">
                 Join AjiraLink and connect with a platform designed to make jobs, internships, mentorship, and
                 career pathways easier to find and easier to trust.
               </p>
