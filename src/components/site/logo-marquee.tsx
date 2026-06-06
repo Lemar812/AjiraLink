@@ -74,7 +74,7 @@ export function LogoMarquee() {
               alt={logo.replace(/\.(jpeg|jpg|png)$/i, "")}
               width={224}
               height={112}
-              className="h-16 w-auto max-w-full object-contain grayscale opacity-80 transition-all duration-300 hover:grayscale-0 hover:opacity-100 md:h-20 lg:h-24"
+              className="h-16 w-auto max-w-full object-contain opacity-95 transition-all duration-300 hover:opacity-100 md:h-20 lg:h-24"
             />
           </motion.div>
         ))}
