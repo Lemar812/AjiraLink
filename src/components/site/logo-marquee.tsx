@@ -59,8 +59,8 @@ export function LogoMarquee() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <style>{marqueeThemeStyles}</style>
-      <div className="logo-marquee-fade-left pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-white via-white/80 to-transparent sm:w-14" />
-      <div className="logo-marquee-fade-right pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-white via-white/80 to-transparent sm:w-14" />
+      <div className="logo-marquee-fade-left pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-linear-to-r from-white via-white/80 to-transparent sm:w-14" />
+      <div className="logo-marquee-fade-right pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-linear-to-l from-white via-white/80 to-transparent sm:w-14" />
       <motion.div className="flex w-max items-center gap-4 md:gap-5 lg:gap-6" animate={controls}>
         {duplicatedLogos.map((logo, index) => (
           <motion.div
