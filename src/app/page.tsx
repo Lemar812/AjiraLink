@@ -493,7 +493,10 @@ export default function Home() {
                   aria-hidden={isDuplicate || undefined}
                 >
                   {testimonials.map((testimonial, index) => (
-                    <div key={`${isDuplicate ? "duplicate" : "primary"}-${testimonial.name}`} className="testimonial-marquee-item">
+                    <div
+                      key={`${isDuplicate ? "duplicate" : "primary"}-${testimonial.name}`}
+                      className="testimonial-marquee-item"
+                    >
                       <TestimonialCard {...testimonial} index={index} />
                     </div>
                   ))}

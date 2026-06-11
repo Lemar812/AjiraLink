@@ -215,9 +215,7 @@ export function TestimonialCard({
         </div>
       </div>
       <div className="mt-6 h-px bg-[#FFC727]/45" />
-      <p className="testimonial-message mt-5 flex-1 text-base leading-7">
-        &ldquo;{message}&rdquo;
-      </p>
+      <p className="testimonial-message mt-5 flex-1 text-base leading-7">&ldquo;{message}&rdquo;</p>
     </motion.article>
   );
 }

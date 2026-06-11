@@ -701,35 +701,21 @@ export function ContactPageContent() {
             <div className="grid gap-4 md:grid-cols-2">
               <label className="next-page-title text-sm font-bold">
                 Full Name
-                <input
-                  name="fullName"
-                  className={fieldClass}
-                  aria-invalid={!!errors.fullName}
-                />
+                <input name="fullName" className={fieldClass} aria-invalid={!!errors.fullName} />
                 {errors.fullName ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.fullName}</span>
                 ) : null}
               </label>
               <label className="next-page-title text-sm font-bold">
                 Email Address
-                <input
-                  name="email"
-                  type="email"
-                  className={fieldClass}
-                  aria-invalid={!!errors.email}
-                />
+                <input name="email" type="email" className={fieldClass} aria-invalid={!!errors.email} />
                 {errors.email ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.email}</span>
                 ) : null}
               </label>
               <label className="next-page-title text-sm font-bold">
                 Phone Number
-                <input
-                  name="phone"
-                  type="tel"
-                  className={fieldClass}
-                  aria-invalid={!!errors.phone}
-                />
+                <input name="phone" type="tel" className={fieldClass} aria-invalid={!!errors.phone} />
                 {errors.phone ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.phone}</span>
                 ) : null}
@@ -805,8 +791,7 @@ const supportCards = [
     title: "Expand to Educational Institutions",
     copy: "Reach students and graduates through institutional partners.",
     icon: Building2,
-    image:
-      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
+    image: "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
   {
     title: "Grow Employer Partnerships",
@@ -858,8 +843,7 @@ const fundingUses = [
     title: "Institution Expansion",
     copy: "Campus and training partner activation.",
     icon: Building2,
-    image:
-      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
+    image: "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
   {
     title: "Marketing",

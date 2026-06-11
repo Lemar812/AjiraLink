@@ -149,8 +149,7 @@ const partnershipAreas = [
     title: "Institutional Partnerships",
     copy: "We collaborate with schools, colleges, universities, and training institutions to support students with career guidance and opportunity access.",
     icon: GraduationCap,
-    image:
-      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
+    image: "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
   {
     title: "Employer Partnerships",
