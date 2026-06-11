@@ -66,8 +66,16 @@ export default function TeamPage() {
     <SiteShell>
       <style>{teamCtaThemeStyles}</style>
       <section className="relative overflow-hidden px-4 pb-20 pt-36 sm:px-6 sm:pt-40 lg:px-8">
-        <div className="absolute inset-0 blue-grid opacity-25" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,199,39,0.20),transparent_26%),linear-gradient(135deg,#061a3f_0%,#0A3D91_48%,#061a3f_100%)]" />
+        <Image
+          src="/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-9.JPG"
+          alt="The AjiraLink team building youth opportunity pathways"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+        <div className="about-hero-overlay absolute inset-0" />
+        <div className="about-hero-gradient absolute inset-0" />
 
         <div className="relative z-10 mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <div>
@@ -127,12 +135,13 @@ export default function TeamPage() {
 
       <section className="relative px-4 py-24 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="mx-auto mb-14 max-w-3xl text-center">
+          <div className="mx-auto mb-12 max-w-6xl text-center">
             <p className="mb-4 text-xs font-bold uppercase tracking-[0.28em] text-ajira-yellow">
               The builders
             </p>
-            <h2 className="text-4xl font-black tracking-tight text-white sm:text-6xl">
-              A compact team with product focus, ecosystem trust, and youth-first execution.
+            <h2 className="text-4xl font-black leading-tight tracking-tight text-white lg:text-5xl">
+              <span className="block lg:whitespace-nowrap">A compact team with product focus,</span>
+              <span className="block lg:whitespace-nowrap">ecosystem trust, and youth-first execution.</span>
             </h2>
             <p className="mt-6 text-lg leading-8 text-white/66">
               Each member brings a clear responsibility to the work of helping young people discover, prepare

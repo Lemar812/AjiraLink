@@ -19,21 +19,22 @@ import {
   Network,
   Phone,
   Rocket,
-  Route,
   Send,
   ShieldCheck,
   Sparkles,
   TrendingUp,
   Users,
   WandSparkles,
+  type LucideIcon,
 } from "lucide-react";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import type { ComponentType, FormEvent, ReactNode } from "react";
+import type { FormEvent, ReactNode } from "react";
 import { ButtonLink } from "@/components/site/button-link";
+import { SplitImageCard } from "@/components/site/cards";
 import { SiteShell } from "@/components/site/site-shell";
 import { contactDetails, images, systemRoutes } from "@/data/landing";
 
@@ -48,21 +49,13 @@ const fadeUpContainer = {
   },
 } satisfies Variants;
 
-const fadeUpItem = {
-  hidden: { opacity: 0, y: 26 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.55, ease: "easeOut" },
-  },
-} satisfies Variants;
-
-type IconType = ComponentType<{ size?: number; className?: string }>;
+type IconType = LucideIcon;
 
 type CardItem = {
   title: string;
   copy: string;
   icon: IconType;
+  image: string;
 };
 
 function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
@@ -78,28 +71,18 @@ function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: strin
 }
 
 function FeatureCard({ item, index, className }: { item: CardItem; index: number; className?: string }) {
-  const Icon = item.icon;
-
   return (
-    <motion.article
-      className={`next-page-card group relative min-h-56 rounded-[1.75rem] border p-6 shadow-[0_24px_70px_rgba(10,61,145,0.12)] backdrop-blur-2xl ${className ?? ""}`}
-      variants={fadeUpItem}
-      whileHover={{ y: -8, scale: 1.012 }}
-      transition={{ type: "spring", stiffness: 260, damping: 22 }}
-      custom={index}
-    >
-      <div className="mb-5 flex items-center gap-4">
-        <motion.span
-          className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]"
-          whileHover={{ rotate: -4, scale: 1.06 }}
-          transition={{ type: "spring", stiffness: 320, damping: 18 }}
-        >
-          <Icon size={25} />
-        </motion.span>
-        <h3 className="next-page-title text-xl font-black leading-tight tracking-tight">{item.title}</h3>
-      </div>
-      <p className="next-page-copy text-sm leading-7">{item.copy}</p>
-    </motion.article>
+    <SplitImageCard
+      title={item.title}
+      copy={item.copy}
+      image={item.image}
+      imageAlt={`${item.title} at AjiraLink`}
+      icon={item.icon}
+      index={index}
+      className={`next-page-card ${className ?? ""}`}
+      titleClassName="next-page-title"
+      copyClassName="next-page-copy"
+    />
   );
 }
 
@@ -163,41 +146,77 @@ const careerRoadmap = [
     title: "Career Discovery",
     copy: "Understand your strengths, interests, and possible career paths.",
     icon: Compass,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Discover-Yourself.JPG",
   },
   {
     title: "CV & Cover Letter Support",
     copy: "Learn how to present your skills, education, and experience professionally.",
     icon: ClipboardCheck,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Build-Your-Profile.JPG",
   },
   {
     title: "Interview Preparation",
     copy: "Build confidence and prepare for real employer conversations.",
     icon: MessageSquareText,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Leran-Essential-Skills.JPG",
   },
   {
     title: "Mentorship",
     copy: "Connect with professionals and career guides who can support your growth.",
     icon: HeartHandshake,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Connect-With-Mentors.JPG",
   },
   {
     title: "Soft Skills Development",
     copy: "Improve communication, teamwork, leadership, problem-solving, and workplace readiness.",
     icon: Users,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Access-Opportunities.jpg",
   },
   {
     title: "AI-Powered Job Matching",
     copy: "Use digital tools that help connect your profile with suitable opportunities.",
     icon: BrainCircuit,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Grow-Profesionally.JPG",
   },
 ] as const;
 
 const careerJourney = [
-  "Discover Yourself",
-  "Build Your Profile",
-  "Learn Essential Skills",
-  "Connect With Mentors",
-  "Access Opportunities",
-  "Grow Professionally",
+  {
+    title: "Discover Yourself",
+    copy: "Identify your strengths, interests, and the career directions that fit you.",
+    icon: Compass,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Discover-Yourself.JPG",
+  },
+  {
+    title: "Build Your Profile",
+    copy: "Present your education, skills, and experience with clarity and confidence.",
+    icon: ClipboardCheck,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Build-Your-Profile.JPG",
+  },
+  {
+    title: "Learn Essential Skills",
+    copy: "Strengthen the practical and professional skills employers expect.",
+    icon: BookOpenCheck,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Leran-Essential-Skills.JPG",
+  },
+  {
+    title: "Connect With Mentors",
+    copy: "Learn from professionals who can guide your decisions and growth.",
+    icon: HeartHandshake,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Connect-With-Mentors.JPG",
+  },
+  {
+    title: "Access Opportunities",
+    copy: "Move from preparation into verified jobs, placements, and programs.",
+    icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Access-Opportunities.jpg",
+  },
+  {
+    title: "Grow Professionally",
+    copy: "Build experience, networks, and momentum for long-term progress.",
+    icon: TrendingUp,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Grow-Profesionally.JPG",
+  },
 ] as const;
 
 function CareerRoadmapPanel() {
@@ -252,7 +271,7 @@ export function CareerGuidancePageContent() {
       <Hero
         eyebrow="Career Guidance"
         title="Build Skills. Discover Your Path. Prepare for the Future of Work."
-        image={images.mentor}
+        image={images.guidanceHero}
         primary={{ label: "Access Career Resources", href: systemRoutes.careerResources }}
         secondary={{ label: "Create Your Profile", href: systemRoutes.youthRegister }}
         copy={
@@ -276,27 +295,14 @@ export function CareerGuidancePageContent() {
             copy="AjiraLink supports young people as they move from understanding themselves to building profiles, learning skills, connecting with mentors, and accessing real opportunities."
           />
           <motion.div
-            className="grid gap-4 md:grid-cols-2 xl:grid-cols-6"
+            className="grid gap-5 md:grid-cols-2 xl:grid-cols-3"
             variants={fadeUpContainer}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
             {careerJourney.map((step, index) => (
-              <motion.article
-                key={step}
-                className="next-page-card group rounded-3xl border p-5 backdrop-blur-2xl"
-                variants={fadeUpItem}
-                whileHover={{ y: -7, scale: 1.018 }}
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#FFC727] text-sm font-black text-[#0A3D91]">
-                    {index + 1}
-                  </span>
-                  <Route size={18} className="text-[#FFC727]" />
-                </div>
-                <h3 className="next-page-title text-lg font-black leading-tight">{step}</h3>
-              </motion.article>
+              <FeatureCard key={step.title} item={step} index={index} />
             ))}
           </motion.div>
         </div>
@@ -315,14 +321,35 @@ const targetStats = [
 ] as const;
 
 const strategicStats = [
-  { title: "50,000 Youth Registered", copy: "Youth registered on the platform.", icon: Users },
-  { title: "5,000 Opportunities Shared", copy: "Employment opportunities shared.", icon: BriefcaseBusiness },
-  { title: "10,000 Youth Trained", copy: "Youth trained in career readiness.", icon: BookOpenCheck },
-  { title: "150 Employer Partnerships", copy: "Employer partnerships established.", icon: Building2 },
+  {
+    title: "50,000 Youth Registered",
+    copy: "Youth registered on the platform.",
+    icon: Users,
+    image: "/images/Ajiralink Website Photos/Impact Page/50,000-Youth-Registered.jpg",
+  },
+  {
+    title: "5,000 Opportunities Shared",
+    copy: "Employment opportunities shared.",
+    icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/Impact Page/5,000-Opportunities-Shared.jpg",
+  },
+  {
+    title: "10,000 Youth Trained",
+    copy: "Youth trained in career readiness.",
+    icon: BookOpenCheck,
+    image: "/images/Ajiralink Website Photos/Impact Page/10,000-Youth-Trained.jpg",
+  },
+  {
+    title: "150 Employer Partnerships",
+    copy: "Employer partnerships established.",
+    icon: Building2,
+    image: "/images/Ajiralink Website Photos/Impact Page/150-Employer-Patnerships.jpg",
+  },
   {
     title: "National Recognition",
     copy: "AjiraLink recognized as a trusted youth employment platform.",
     icon: BadgeCheck,
+    image: "/images/Ajiralink Website Photos/Impact Page/National-Recognition.jpg",
   },
 ] as const;
 
@@ -331,24 +358,43 @@ const longTermVision = [
     title: "AI-Powered Career Guidance",
     copy: "Personalized direction for youth career decisions.",
     icon: BrainCircuit,
+    image: "/images/Ajiralink Website Photos/Impact Page/50,000-Youth-Registered.jpg",
   },
   {
     title: "Digital Learning Tools",
     copy: "Practical resources for employability readiness.",
     icon: MonitorSmartphone,
+    image: "/images/Ajiralink Website Photos/Impact Page/10,000-Youth-Trained.jpg",
   },
-  { title: "Mobile Application Services", copy: "Access to AjiraLink from anywhere.", icon: Phone },
-  { title: "East African Expansion", copy: "Regional pathways for youth opportunity access.", icon: Network },
+  {
+    title: "Mobile Application Services",
+    copy: "Access to AjiraLink from anywhere.",
+    icon: Phone,
+    image: "/images/Ajiralink Website Photos/Impact Page/5,000-Opportunities-Shared.jpg",
+  },
+  {
+    title: "East African Expansion",
+    copy: "Regional pathways for youth opportunity access.",
+    icon: Network,
+    image: "/images/Ajiralink Website Photos/Impact Page/National-Recognition.jpg",
+  },
   {
     title: "Remote Internships",
     copy: "Distributed work experience across organizations.",
     icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/Impact Page/150-Employer-Patnerships.jpg",
   },
-  { title: "Skills Learning Marketplace", copy: "A discovery layer for practical learning.", icon: Sparkles },
+  {
+    title: "Skills Learning Marketplace",
+    copy: "A discovery layer for practical learning.",
+    icon: Sparkles,
+    image: "/images/Ajiralink Website Photos/Impact Page/10,000-Youth-Trained.jpg",
+  },
   {
     title: "Career Data Analytics",
     copy: "Insights that improve youth employment outcomes.",
     icon: LineChart,
+    image: "/images/Ajiralink Website Photos/Impact Page/National-Recognition.jpg",
   },
 ] as const;
 
@@ -404,7 +450,7 @@ export function ImpactPageContent() {
       <Hero
         eyebrow="Impact"
         title="Building Africa’s Career Opportunity Ecosystem"
-        image={images.community}
+        image={images.impactHero}
         primary={{ label: "Partner With Us", href: "/support-us" }}
         secondary={{ label: "Create Your Profile", href: systemRoutes.youthRegister }}
         copy={
@@ -434,8 +480,8 @@ export function ImpactPageContent() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            {strategicStats.map(({ title, copy, icon: Icon }, index) => (
-              <FeatureCard key={copy} item={{ title, copy, icon: Icon }} index={index} />
+            {strategicStats.map((item, index) => (
+              <FeatureCard key={item.title} item={item} index={index} />
             ))}
           </motion.div>
         </div>
@@ -536,20 +582,16 @@ function ContactQuickPanel() {
 }
 
 export function ContactPageContent() {
-  const [isSending, setIsSending] = useState(false);
-  const [submitSuccess, setSubmitSuccess] = useState<string | null>(null);
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (isSending) return;
 
     const form = new FormData(event.currentTarget);
     const fullName = String(form.get("fullName") ?? "").trim();
     const email = String(form.get("email") ?? "").trim();
-    const phone = String(form.get("phone") ?? "").trim();
-    const userType = String(form.get("userType") ?? "").trim();
+    const phoneNumber = String(form.get("phone") ?? "").trim();
+    const userRole = String(form.get("userType") ?? "").trim();
     const message = String(form.get("message") ?? "").trim();
 
     const nextErrors: Record<string, string> = {};
@@ -560,66 +602,35 @@ export function ContactPageContent() {
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       nextErrors.email = "Enter a valid email address.";
     }
-    if (!phone) nextErrors.phone = "Phone number is required.";
-    if (!userType) nextErrors.userType = "Please select a user type.";
+    if (!phoneNumber) nextErrors.phone = "Phone number is required.";
+    if (!userRole) nextErrors.userType = "Please select a user type.";
     if (!message) nextErrors.message = "Message is required.";
 
     setErrors(nextErrors);
 
-    if (Object.keys(nextErrors).length > 0) {
-      setSubmitSuccess(null);
-      setSubmitError(null);
-      return;
-    }
+    if (Object.keys(nextErrors).length > 0) return;
 
-    setIsSending(true);
-    setSubmitSuccess(null);
-    setSubmitError(null);
+    const subject = encodeURIComponent(`New AjiraLink Contact Form Submission from ${fullName}`);
+    const body = encodeURIComponent(
+      `Full Name: ${fullName}\n` +
+        `Email Address: ${email}\n` +
+        `Phone Number: ${phoneNumber}\n` +
+        `I am a: ${userRole}\n\n` +
+        `Message:\n${message}`,
+    );
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fullName,
-          email,
-          phone,
-          userType,
-          message,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitSuccess("Thank you! Your message has been sent successfully.");
-        event.currentTarget.reset();
-      } else {
-        setSubmitError(data.error || "Failed to send message. Please try again later.");
-      }
-    } catch (err) {
-      console.error(err);
-      setSubmitError(
-        err instanceof Error
-          ? err.message
-          : "A network error occurred. Please check your connection and try again.",
-      );
-    } finally {
-      setIsSending(false);
-    }
+    window.location.href = `mailto:linkajira@gmail.com?subject=${subject}&body=${body}`;
   }
 
   const fieldClass =
-    "next-page-input mt-2 min-h-12 w-full rounded-2xl border px-4 text-sm outline-none transition disabled:opacity-50 disabled:cursor-not-allowed";
+    "next-page-input mt-2 min-h-12 w-full rounded-2xl border px-4 text-sm outline-none transition";
 
   return (
     <SiteShell>
       <Hero
         eyebrow="Contact"
         title="Get in Touch With AjiraLink"
-        image={images.workshop}
+        image={images.contactHero}
         primary={{ label: "Email AjiraLink", href: contactDetails.emailHref }}
         secondary={{ label: "Post an Opportunity", href: systemRoutes.postOpportunity }}
         copy={
@@ -694,7 +705,6 @@ export function ContactPageContent() {
                   name="fullName"
                   className={fieldClass}
                   aria-invalid={!!errors.fullName}
-                  disabled={isSending}
                 />
                 {errors.fullName ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.fullName}</span>
@@ -707,7 +717,6 @@ export function ContactPageContent() {
                   type="email"
                   className={fieldClass}
                   aria-invalid={!!errors.email}
-                  disabled={isSending}
                 />
                 {errors.email ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.email}</span>
@@ -720,7 +729,6 @@ export function ContactPageContent() {
                   type="tel"
                   className={fieldClass}
                   aria-invalid={!!errors.phone}
-                  disabled={isSending}
                 />
                 {errors.phone ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.phone}</span>
@@ -733,7 +741,6 @@ export function ContactPageContent() {
                   className={fieldClass}
                   aria-invalid={!!errors.userType}
                   defaultValue=""
-                  disabled={isSending}
                 >
                   <option value="" disabled>
                     Select one
@@ -755,7 +762,6 @@ export function ContactPageContent() {
                   rows={6}
                   className={`${fieldClass} resize-none py-3`}
                   aria-invalid={!!errors.message}
-                  disabled={isSending}
                 />
                 {errors.message ? (
                   <span className="next-page-error mt-1 block text-xs">{errors.message}</span>
@@ -764,22 +770,11 @@ export function ContactPageContent() {
             </div>
             <button
               type="submit"
-              disabled={isSending}
-              className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#FFC727] px-5 text-sm font-black text-[#0A3D91] shadow-[0_18px_60px_rgba(255,199,39,0.26)] transition hover:-translate-y-0.5 hover:bg-white disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:bg-[#FFC727]"
+              className="mt-5 inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-[#FFC727] px-5 text-sm font-black text-[#0A3D91] shadow-[0_18px_60px_rgba(255,199,39,0.26)] transition hover:-translate-y-0.5 hover:bg-white"
             >
-              {isSending ? "Sending..." : "Send Message"}
+              Send Message
               <Send size={16} />
             </button>
-            {submitSuccess ? (
-              <p className="next-page-success mt-4 rounded-2xl px-4 py-3 text-sm font-bold">
-                {submitSuccess}
-              </p>
-            ) : null}
-            {submitError ? (
-              <p className="next-page-submit-error mt-4 rounded-2xl px-4 py-3 text-sm font-bold">
-                {submitError}
-              </p>
-            ) : null}
           </motion.form>
         </div>
       </section>
@@ -792,41 +787,51 @@ const supportCards = [
     title: "Improve the AjiraLink Platform",
     copy: "Upgrade reliability, usability, and platform workflows.",
     icon: MonitorSmartphone,
+    image: "/images/Ajiralink Website Photos/Home Page/Outreach-and-Ecosystem.jpg",
   },
   {
     title: "Launch and Scale the Mobile Application",
     copy: "Bring AjiraLink services closer to youth on mobile.",
     icon: Rocket,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Access-Opportunities.jpg",
   },
   {
     title: "Develop AI-Powered Job Matching",
     copy: "Match youth profiles with suitable opportunities.",
     icon: BrainCircuit,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Grow-Profesionally.JPG",
   },
   {
     title: "Expand to Educational Institutions",
     copy: "Reach students and graduates through institutional partners.",
     icon: Building2,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
   {
     title: "Grow Employer Partnerships",
     copy: "Build more opportunity pipelines with youth-friendly employers.",
     icon: Handshake,
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Train More Youth",
     copy: "Scale career readiness, mentorship, and practical skills support.",
     icon: BookOpenCheck,
+    image: "/images/Ajiralink Website Photos/Impact Page/10,000-Youth-Trained.jpg",
   },
   {
     title: "Strengthen Marketing and Outreach",
     copy: "Reach more youth, employers, funders, and ecosystem partners.",
     icon: Megaphone,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Youth-Outreach-and-Awareness.jpg",
   },
   {
     title: "Build a Sustainable Youth Employment Ecosystem",
     copy: "Support long-term operations and measurable employment outcomes.",
     icon: ShieldCheck,
+    image: "/images/Ajiralink Website Photos/Impact Page/National-Recognition.jpg",
   },
 ] as const;
 
@@ -835,14 +840,52 @@ const fundingUses = [
     title: "Platform Development",
     copy: "Product improvements and core system quality.",
     icon: MonitorSmartphone,
+    image: "/images/Ajiralink Website Photos/Home Page/Outreach-and-Ecosystem.jpg",
   },
-  { title: "Mobile App Development", copy: "Mobile-first access for youth and partners.", icon: Phone },
-  { title: "AI Career Tools", copy: "Matching, guidance, and profile intelligence.", icon: WandSparkles },
-  { title: "Institution Expansion", copy: "Campus and training partner activation.", icon: Building2 },
-  { title: "Marketing", copy: "Campaigns, storytelling, and brand reach.", icon: Megaphone },
-  { title: "User Acquisition", copy: "Growth programs for young people and employers.", icon: TrendingUp },
-  { title: "Operations", copy: "Reliable delivery, support, and coordination.", icon: CheckCircle2 },
-  { title: "Team Growth", copy: "Talent needed to scale the mission responsibly.", icon: Users },
+  {
+    title: "Mobile App Development",
+    copy: "Mobile-first access for youth and partners.",
+    icon: Phone,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Access-Opportunities.jpg",
+  },
+  {
+    title: "AI Career Tools",
+    copy: "Matching, guidance, and profile intelligence.",
+    icon: WandSparkles,
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Grow-Profesionally.JPG",
+  },
+  {
+    title: "Institution Expansion",
+    copy: "Campus and training partner activation.",
+    icon: Building2,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
+  },
+  {
+    title: "Marketing",
+    copy: "Campaigns, storytelling, and brand reach.",
+    icon: Megaphone,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Youth-Outreach-and-Awareness.jpg",
+  },
+  {
+    title: "User Acquisition",
+    copy: "Growth programs for young people and employers.",
+    icon: TrendingUp,
+    image: "/images/Ajiralink Website Photos/Impact Page/50,000-Youth-Registered.jpg",
+  },
+  {
+    title: "Operations",
+    copy: "Reliable delivery, support, and coordination.",
+    icon: CheckCircle2,
+    image: "/images/Ajiralink Website Photos/Employers Page/Save-Time.jpg",
+  },
+  {
+    title: "Team Growth",
+    copy: "Talent needed to scale the mission responsibly.",
+    icon: Users,
+    image: "/images/Ajiralink Website Photos/Employers Page/Support-Youth-Employment.jpg",
+  },
 ] as const;
 
 function SupportPanel() {
@@ -890,7 +933,7 @@ export function SupportUsPageContent() {
       <Hero
         eyebrow="Support Us"
         title="Invest in the Future of African Youth"
-        image={images.employer}
+        image={images.supportHero}
         primary={{ label: "Partner With Us", href: "/contact" }}
         secondary={{ label: "See Impact", href: "/impact" }}
         copy={

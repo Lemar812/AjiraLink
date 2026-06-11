@@ -42,12 +42,16 @@ export const navLinks = [
 ];
 
 export const images = {
-  hero: "https://images.unsplash.com/photo-1694175271713-a6e2cc378980?auto=format&fit=crop&q=80&w=1400",
-  workshop: "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=1400",
-  mentor: "https://images.unsplash.com/photo-1620829813573-7c9e1877706f?auto=format&fit=crop&q=80&w=1200",
-  community: "https://images.unsplash.com/photo-1632215861513-130b66fe97f4?auto=format&fit=crop&q=80&w=1200",
-  team: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=1400",
-  employer: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&q=80&w=1400",
+  homeHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-1.jpg",
+  aboutHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-2.jpeg",
+  opportunitiesHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-3.JPG",
+  guidanceHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-4.JPG",
+  employersHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-5.JPG",
+  partnersHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-6.JPG",
+  impactHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-7.JPG",
+  supportHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-8.JPG",
+  teamHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-9.JPG",
+  contactHero: "/images/Ajiralink Website Photos/Hero Pictures/Hero-Picture-10.JPG",
 } as const;
 
 export const heroStats = [
@@ -76,21 +80,25 @@ export const features = [
     title: "Verified Opportunities",
     copy: "Jobs, internships, volunteer placements, and field opportunities surfaced through a trusted youth-first platform.",
     icon: "shield",
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Jobs.jpg",
   },
   {
     title: "Career Development",
     copy: "Guidance, resources, mentorship, and readiness content that helps youth move from interest to action.",
     icon: "book",
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Grow-Profesionally.JPG",
   },
   {
     title: "Employer Access",
     copy: "A focused channel for employers to reach students, graduates, and young professionals with high intent.",
     icon: "briefcase",
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Partnership Engine",
     copy: "A scalable marketing and outreach platform for institutions, funders, hubs, and ecosystem partners.",
     icon: "handshake",
+    image: "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
 ] satisfies IconCardData[];
 
@@ -100,47 +108,68 @@ export const systemCards = [
     copy: "Return to your AjiraLink account and continue where you left off.",
     href: systemRoutes.login,
     icon: "arrow",
+    image: "/images/Ajiralink Website Photos/Home Page/Outreach-and-Ecosystem.jpg",
   },
   {
     title: "Youth Registration",
     copy: "Create your profile and start discovering opportunities built for your stage.",
     href: systemRoutes.youthRegister,
     icon: "graduation",
+    image: "/images/Ajiralink Website Photos/Career Guidance Page/Build-Your-Profile.JPG",
   },
   {
     title: "Register as Employer",
     copy: "Join as an employer and connect with emerging talent across the ecosystem.",
     href: systemRoutes.employerRegister,
     icon: "building",
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Browse Opportunities",
     copy: "Explore jobs, internships, volunteer placements, and field opportunities.",
     href: systemRoutes.opportunities,
     icon: "badge",
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Volunteer-Opportunities.JPG",
   },
 ] satisfies IconCardData[];
 
 export const testimonials = [
   {
-    name: "Amina Otieno",
-    role: "Graduate trainee, Nairobi",
-    quote:
-      "AjiraLink made opportunity feel organized. I found internships, career guidance, and mentors without relying on random forwarded links.",
+    name: "Amani Mathew",
+    image: "/images/Testimonials Photos/Amani-Mathew.png",
+    title: "Student",
+    message:
+      "AjiraLink completely changed how I approach my career prep. The platform streamlined my search for field placements and gave me access to practical learning opportunities that classroom lectures just couldn't replicate.",
   },
   {
-    name: "Brian Mwangi",
-    role: "Field coordinator, Nakuru",
-    quote:
-      "The platform gives youth a cleaner way to discover real placements and understand what employers are looking for.",
+    name: "Emmanuel Simon",
+    image: "/images/Testimonials Photos/Emmanuel-Simon.jpeg",
+    title: "Student",
+    message:
+      "Finding credible mentorship and tailored career guidance used to feel impossible. AjiraLink bridged that gap instantly, connecting me directly with pathways designed specifically for youth empowerment and tech skill readiness.",
   },
   {
-    name: "Nadia Ndlovu",
-    role: "Talent partner, Johannesburg",
-    quote:
-      "AjiraLink feels like the right bridge between employers and young people who are prepared, ambitious, and ready to grow.",
+    name: "Faraja Oletenges",
+    image: "/images/Testimonials Photos/Faraja-Oletenges.png",
+    title: "Student",
+    message:
+      "The ecosystem built here is incredibly supportive. Through the platform's resources, I was able to secure hands-on workshop experience that significantly boosted my engineering profile and confidence.",
   },
-];
+  {
+    name: "Gloria Vincent",
+    image: "/images/Testimonials Photos/Gloria-Vincent.png",
+    title: "Teacher",
+    message:
+      "As a teacher, AjiraLink has proven to be an indispensable asset for discovering exceptional, motivated youth talent. Their structured pathways ensure candidates are not just educated, but workplace-ready from day one.",
+  },
+  {
+    name: "Jofrey Eliudi",
+    image: "/images/Testimonials Photos/Jofrey-Eliudi.png",
+    title: "Student",
+    message:
+      "What sets AjiraLink apart is trust. Every opportunity listed is verified, and the career development programs are highly relevant to what the local and regional industries are looking for right now.",
+  },
+] as const;
 
 export const pageCards = {
   about: [

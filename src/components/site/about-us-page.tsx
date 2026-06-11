@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/site/button-link";
+import { SplitImageCard } from "@/components/site/cards";
 import { SiteShell } from "@/components/site/site-shell";
 import { images, systemRoutes } from "@/data/landing";
 
@@ -40,26 +41,31 @@ const values = [
     title: "Integrity",
     copy: "We believe in transparency, trust, and verified opportunities.",
     icon: ShieldCheck,
+    image: "/images/Ajiralink Website Photos/About Page/Our Values/Integrity.jpg",
   },
   {
     title: "Innovation",
     copy: "We use technology to create better employment and career development solutions.",
     icon: Lightbulb,
+    image: "/images/Ajiralink Website Photos/About Page/Our Values/Innovation.jpg",
   },
   {
     title: "Inclusivity",
     copy: "We believe every young person deserves access to information, guidance, and opportunities.",
     icon: HeartHandshake,
+    image: "/images/Ajiralink Website Photos/About Page/Our Values/Inclusivity.jpg",
   },
   {
     title: "Accountability",
     copy: "We measure our work, improve continuously, and remain committed to impact.",
     icon: BadgeCheck,
+    image: "/images/Ajiralink Website Photos/About Page/Our Values/Accountability.jpg",
   },
   {
     title: "Youth Empowerment",
     copy: "We are building a platform that helps youth create sustainable futures.",
     icon: Rocket,
+    image: "/images/Ajiralink Website Photos/About Page/Our Values/Youth-Empowerement.jpg",
   },
 ] as const;
 
@@ -166,7 +172,7 @@ export function AboutUsPageContent() {
       <section className="relative overflow-hidden px-4 pb-10 pt-44 sm:px-6 sm:pt-48 lg:px-8">
         <div className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
           <Image
-            src={images.community}
+            src={images.aboutHero}
             alt="Young people connecting through AjiraLink opportunities"
             fill
             priority
@@ -210,45 +216,24 @@ export function AboutUsPageContent() {
 
       <section className="px-4 py-10 sm:px-6 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-5 lg:grid-cols-2">
-          <motion.article className="glass-panel rounded-[2rem] p-6" data-gsap-reveal>
-            <div className="mb-5 flex items-center gap-4">
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91]">
-                <Eye size={25} />
-              </span>
-              <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#FFC727]">
-                  Our Vision
-                </p>
-                <h2 className="about-card-title text-3xl font-black tracking-tight">
-                  Transform youth livelihoods.
-                </h2>
-              </div>
-            </div>
-            <p className="about-card-copy mt-4 leading-8">
-              To become a leading digital employment platform transforming youth livelihoods by increasing
-              access to decent work and professional opportunities across Africa.
-            </p>
-          </motion.article>
-          <motion.article className="glass-panel rounded-[2rem] p-6" data-gsap-reveal>
-            <div className="mb-5 flex items-center gap-4">
-              <span className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91]">
-                <Compass size={25} />
-              </span>
-              <div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.24em] text-[#FFC727]">
-                  Our Mission
-                </p>
-                <h2 className="about-card-title text-3xl font-black tracking-tight">
-                  Connect youth to opportunity.
-                </h2>
-              </div>
-            </div>
-            <p className="about-card-copy mt-4 leading-8">
-              To empower youth by providing accessible, reliable, and inclusive digital platforms that connect
-              them to jobs, internships, volunteer opportunities, field placements, and career development
-              resources.
-            </p>
-          </motion.article>
+          <SplitImageCard
+            title="Transform youth livelihoods."
+            copy="To become a leading digital employment platform transforming youth livelihoods by increasing access to decent work and professional opportunities across Africa."
+            image="/images/Ajiralink Website Photos/About Page/Our-Vision.jpg"
+            icon={Eye}
+            className="glass-panel"
+            titleClassName="about-card-title"
+            copyClassName="about-card-copy"
+          />
+          <SplitImageCard
+            title="Connect youth to opportunity."
+            copy="To empower youth by providing accessible, reliable, and inclusive digital platforms that connect them to jobs, internships, volunteer opportunities, field placements, and career development resources."
+            image="/images/Ajiralink Website Photos/About Page/Our-Mission.jpg"
+            icon={Compass}
+            className="glass-panel"
+            titleClassName="about-card-title"
+            copyClassName="about-card-copy"
+          />
         </div>
       </section>
 
@@ -292,24 +277,18 @@ export function AboutUsPageContent() {
             copy="Practical values that keep the platform trusted, inclusive, and impact-focused."
           />
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
-            {values.map(({ title, copy, icon: Icon }, index) => (
-              <motion.article
+            {values.map(({ title, copy, icon: Icon, image }, index) => (
+              <SplitImageCard
                 key={title}
-                className="glass-panel rounded-[1.5rem] p-5"
-                data-gsap-reveal
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: index * 0.04 }}
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91]">
-                    <Icon size={22} />
-                  </span>
-                  <h3 className="about-card-title text-xl font-black">{title}</h3>
-                </div>
-                <p className="about-card-copy leading-7">{copy}</p>
-              </motion.article>
+                title={title}
+                copy={copy}
+                image={image}
+                icon={Icon}
+                index={index}
+                className="glass-panel"
+                titleClassName="about-card-title"
+                copyClassName="about-card-copy"
+              />
             ))}
           </div>
         </div>

@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/site/button-link";
+import { SplitImageCard } from "@/components/site/cards";
 import { SiteShell } from "@/components/site/site-shell";
 import { images, systemRoutes } from "@/data/landing";
 
@@ -23,31 +24,37 @@ const categories = [
     title: "Jobs",
     copy: "Connect with verified employers seeking talented and motivated candidates.",
     icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Jobs.jpg",
   },
   {
     title: "Internships",
     copy: "Gain practical workplace experience and develop industry-relevant skills.",
     icon: GraduationCap,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Internships.JPG",
   },
   {
     title: "Volunteer Opportunities",
     copy: "Build experience, expand networks, and contribute to meaningful causes.",
     icon: HandHeart,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Volunteer-Opportunities.JPG",
   },
   {
     title: "Field Placements",
     copy: "Access attachment and field opportunities that support academic and professional growth.",
     icon: MapPinned,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Field-Placements.jpg",
   },
   {
     title: "Scholarships",
     copy: "Discover opportunities that support learning, training, and educational advancement.",
     icon: BookOpenCheck,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Scholarships.JPG",
   },
   {
     title: "Career Development Programs",
     copy: "Access mentorship, workshops, training programs, and professional growth resources.",
     icon: Sparkles,
+    image: "/images/Ajiralink Website Photos/Opportunities Page/Career-Development-Programs.jpg",
   },
 ] as const;
 
@@ -78,7 +85,8 @@ const steps = [
   },
 ] as const;
 
-const safeSectionSpacing = "scroll-mt-40 px-4 pb-16 pt-32 sm:px-6 md:pt-36 lg:px-8 lg:pt-40";
+const firstSectionSpacing = "scroll-mt-32 px-4 pb-10 pt-8 sm:px-6 sm:pt-10 lg:px-8 lg:pt-12";
+const safeSectionSpacing = "scroll-mt-32 px-4 py-10 sm:px-6 lg:px-8";
 
 function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy: string }) {
   return (
@@ -95,10 +103,10 @@ function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: strin
 export function OpportunitiesPageContent() {
   return (
     <SiteShell>
-      <section className="relative overflow-hidden px-4 pb-14 pt-48 sm:px-6 sm:pt-52 lg:px-8 lg:pt-56">
+      <section className="relative overflow-hidden px-4 pb-8 pt-48 sm:px-6 sm:pt-52 lg:px-8 lg:pt-56">
         <div className="home-hero-media absolute inset-x-0 -top-8 bottom-0">
           <Image
-            src={images.hero}
+            src={images.opportunitiesHero}
             alt="Young professionals exploring career opportunities"
             fill
             priority
@@ -176,7 +184,7 @@ export function OpportunitiesPageContent() {
         </div>
       </section>
 
-      <section className={safeSectionSpacing}>
+      <section className={firstSectionSpacing}>
         <div className="mx-auto max-w-7xl">
           <SectionHeader
             eyebrow="Opportunity Categories"
@@ -184,33 +192,19 @@ export function OpportunitiesPageContent() {
             copy="Explore trusted pathways for employment, practical learning, service, study support, and long-term career readiness."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {categories.map(({ title, copy, icon: Icon }, index) => (
-              <motion.article
+            {categories.map(({ title, copy, icon: Icon, image }, index) => (
+              <SplitImageCard
                 key={title}
-                className="opportunity-card group relative min-h-60 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 backdrop-blur-2xl dark:border-white/15 dark:bg-white/10"
-                initial={{ opacity: 0, y: 34 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.65, delay: index * 0.06, ease: "easeOut" }}
-                whileHover={{ y: -10, scale: 1.015 }}
-              >
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-5 flex items-center gap-4">
-                    <motion.span
-                      className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]"
-                      whileHover={{ rotate: -4, scale: 1.06 }}
-                      transition={{ type: "spring", stiffness: 320, damping: 18 }}
-                    >
-                      <Icon size={25} />
-                    </motion.span>
-                    <h3 className="about-card-title text-2xl font-black tracking-tight text-slate-950 dark:text-white">
-                      {title}
-                    </h3>
-                  </div>
-                  <p className="about-card-copy leading-7 text-slate-700 dark:text-slate-300">{copy}</p>
-                  <div className="opportunity-card-line mt-auto pt-6" />
-                </div>
-              </motion.article>
+                title={title}
+                copy={copy}
+                image={image}
+                icon={Icon}
+                index={index}
+                className="opportunity-card"
+                titleClassName="about-card-title"
+                copyClassName="about-card-copy"
+                imageClassName="object-cover object-top"
+              />
             ))}
           </div>
         </div>

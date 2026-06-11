@@ -278,7 +278,7 @@ function FinalHomeCta() {
   return (
     <section className="relative overflow-hidden px-4 py-14 sm:px-6 lg:px-8">
       <Image
-        src={images.workshop}
+        src="/images/Ajiralink Website Photos/Home Page/Outreach-and-Ecosystem.jpg"
         alt="Young professionals collaborating in a workshop"
         fill
         sizes="100vw"
@@ -325,7 +325,7 @@ export default function Home() {
       <section className="relative min-h-screen overflow-hidden pb-16 pt-44 sm:pt-48 lg:pt-52">
         <motion.div style={{ y: heroY }} className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
           <Image
-            src={images.workshop}
+            src={images.homeHero}
             alt="African youth using technology to access career opportunities"
             fill
             priority
@@ -448,7 +448,7 @@ export default function Home() {
             whileHover={{ scale: 1.01 }}
           >
             <Image
-              src={images.community}
+              src="/images/Ajiralink Website Photos/Home Page/Outreach-and-Ecosystem.jpg"
               alt="Youth community building practical career pathways"
               fill
               sizes="(min-width: 1024px) 46vw, 100vw"
@@ -477,17 +477,29 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative px-4 py-12 sm:px-6 lg:px-8">
+      <section id="testimonials" className="relative scroll-mt-28 px-4 py-12 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionTitle
             eyebrow="Testimonials"
             title="Trusted by youth, employers, and ecosystem builders."
             copy="Real confidence comes from outcomes, community, and the feeling that the future is finally within reach."
           />
-          <div className="grid gap-4 lg:grid-cols-3">
-            {testimonials.map((testimonial, index) => (
-              <TestimonialCard key={testimonial.name} {...testimonial} index={index} />
-            ))}
+          <div className="testimonial-marquee">
+            <div className="testimonial-marquee-track">
+              {[false, true].map((isDuplicate) => (
+                <div
+                  key={isDuplicate ? "duplicate" : "primary"}
+                  className="testimonial-marquee-group"
+                  aria-hidden={isDuplicate || undefined}
+                >
+                  {testimonials.map((testimonial, index) => (
+                    <div key={`${isDuplicate ? "duplicate" : "primary"}-${testimonial.name}`} className="testimonial-marquee-item">
+                      <TestimonialCard {...testimonial} index={index} />
+                    </div>
+                  ))}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

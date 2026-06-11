@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/site/button-link";
+import { SplitImageCard } from "@/components/site/cards";
 import { SiteShell } from "@/components/site/site-shell";
 import { images, systemRoutes } from "@/data/landing";
 
@@ -25,31 +26,37 @@ const employerBenefits = [
     title: "Post Opportunities",
     copy: "Share jobs, internships, volunteer roles, and field placements with young people ready to grow.",
     icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Reach Motivated Youth",
     copy: "Connect with students, graduates, and young professionals actively seeking career opportunities.",
     icon: Users,
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Support Candidate Screening",
     copy: "Use AjiraLink to simplify discovery, shortlisting, and connection with suitable candidates.",
     icon: BadgeCheck,
+    image: "/images/Ajiralink Website Photos/Employers Page/Save-Time.jpg",
   },
   {
     title: "Build Internship Pathways",
     copy: "Create internship, field placement, and practical learning routes for young people.",
     icon: BookMarked,
+    image: "/images/Ajiralink Website Photos/Employers Page/Support-Youth-Employment.jpg",
   },
   {
     title: "Promote Volunteer Programs",
     copy: "Reach youth interested in service, community engagement, and professional experience.",
     icon: HandshakeIcon,
+    image: "/images/Ajiralink Website Photos/Employers Page/Support-Youth-Employment.jpg",
   },
   {
     title: "Strengthen Employer Branding",
     copy: "Position your organization as a supporter of youth employment and career development.",
     icon: Sparkles,
+    image: "/images/Ajiralink Website Photos/Employers Page/Strengthen-Your-Brand.jpg",
   },
 ] as const;
 
@@ -58,21 +65,25 @@ const employerBenefitCards = [
     title: "Save Time",
     copy: "Reach youth directly through a focused opportunity platform.",
     icon: Clock,
+    image: "/images/Ajiralink Website Photos/Employers Page/Save-Time.jpg",
   },
   {
     title: "Find Motivated Candidates",
     copy: "Connect with young people who are actively seeking growth.",
     icon: UserRoundCheck,
+    image: "/images/Ajiralink Website Photos/Employers Page/Find-Motivated-Candidates.jpg",
   },
   {
     title: "Support Youth Employment",
     copy: "Contribute to career development and practical work experience.",
     icon: HeartHandshake,
+    image: "/images/Ajiralink Website Photos/Employers Page/Support-Youth-Employment.jpg",
   },
   {
     title: "Strengthen Your Brand",
     copy: "Position your organization as a youth-friendly employer.",
     icon: Sparkles,
+    image: "/images/Ajiralink Website Photos/Employers Page/Strengthen-Your-Brand.jpg",
   },
 ] as const;
 
@@ -121,15 +132,6 @@ const fadeUpContainer = {
   },
 } satisfies Variants;
 
-const fadeUpItem = {
-  hidden: { opacity: 0, y: 28 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.58, ease: "easeOut" },
-  },
-} satisfies Variants;
-
 function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
     <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -140,7 +142,7 @@ function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: strin
         {title}
       </h2>
       {copy ? (
-        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-slate-700 dark:text-slate-300 sm:text-lg">
+        <p className="employers-section-copy mx-auto mt-4 max-w-2xl text-base font-medium leading-7 text-[#374151] dark:text-slate-300 sm:text-lg">
           {copy}
         </p>
       ) : null}
@@ -216,7 +218,7 @@ export function ForEmployersPageContent() {
       <section className="relative overflow-hidden px-4 pb-10 pt-44 sm:px-6 sm:pt-48 lg:px-8">
         <div className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
           <Image
-            src={images.employer}
+            src={images.employersHero}
             alt="Employers connecting with young talent"
             fill
             priority
@@ -276,29 +278,16 @@ export function ForEmployersPageContent() {
             whileInView="visible"
             viewport={{ once: true, margin: "-80px" }}
           >
-            {employerBenefitCards.map(({ title, copy, icon: Icon }) => (
-              <motion.article
+            {employerBenefitCards.map(({ title, copy, icon: Icon, image }, index) => (
+              <SplitImageCard
                 key={title}
-                className="employers-card group relative min-h-56 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 shadow-[0_24px_70px_rgba(10,61,145,0.12)] backdrop-blur-2xl dark:border-white/15 dark:bg-white/10 dark:shadow-[0_24px_80px_rgba(0,0,0,0.22)]"
-                variants={fadeUpItem}
-                whileHover={{ y: -8, scale: 1.012 }}
-              >
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-5 flex items-center gap-4">
-                    <motion.span
-                      className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]"
-                      whileHover={{ rotate: -4, scale: 1.06 }}
-                      transition={{ type: "spring", stiffness: 320, damping: 18 }}
-                    >
-                      <Icon size={25} />
-                    </motion.span>
-                    <h3 className="text-xl font-black leading-tight tracking-tight text-slate-950 dark:text-white">
-                      {title}
-                    </h3>
-                  </div>
-                  <p className="text-sm leading-7 text-slate-700 dark:text-slate-300">{copy}</p>
-                </div>
-              </motion.article>
+                title={title}
+                copy={copy}
+                image={image}
+                icon={Icon}
+                index={index}
+                className="employers-card"
+              />
             ))}
           </motion.div>
         </div>
@@ -313,32 +302,16 @@ export function ForEmployersPageContent() {
             copy="Build your talent pipeline and support young people in meaningful career development."
           />
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {employerBenefits.map(({ title, copy, icon: Icon }, index) => (
-              <motion.article
+            {employerBenefits.map(({ title, copy, icon: Icon, image }, index) => (
+              <SplitImageCard
                 key={title}
-                className="employers-card group relative min-h-60 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 backdrop-blur-2xl dark:border-white/15 dark:bg-white/10"
-                initial={{ opacity: 0, y: 34 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.65, delay: index * 0.06, ease: "easeOut" }}
-                whileHover={{ y: -10, scale: 1.015 }}
-              >
-                <div className="relative z-10 flex h-full flex-col">
-                  <div className="mb-5 flex items-center gap-4">
-                    <motion.span
-                      className="grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.24)]"
-                      whileHover={{ rotate: -4, scale: 1.06 }}
-                      transition={{ type: "spring", stiffness: 320, damping: 18 }}
-                    >
-                      <Icon size={25} />
-                    </motion.span>
-                    <h3 className="text-2xl font-black tracking-tight text-slate-950 dark:text-white">
-                      {title}
-                    </h3>
-                  </div>
-                  <p className="leading-7 text-slate-700 dark:text-slate-300">{copy}</p>
-                </div>
-              </motion.article>
+                title={title}
+                copy={copy}
+                image={image}
+                icon={Icon}
+                index={index}
+                className="employers-card"
+              />
             ))}
           </div>
         </div>

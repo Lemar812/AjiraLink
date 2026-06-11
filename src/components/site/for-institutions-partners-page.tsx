@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { ButtonLink } from "@/components/site/button-link";
+import { SplitImageCard } from "@/components/site/cards";
 import { LogoMarquee } from "@/components/site/logo-marquee";
 import { SiteShell } from "@/components/site/site-shell";
 import { images } from "@/data/landing";
@@ -148,26 +149,35 @@ const partnershipAreas = [
     title: "Institutional Partnerships",
     copy: "We collaborate with schools, colleges, universities, and training institutions to support students with career guidance and opportunity access.",
     icon: GraduationCap,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Institutional-Patnerships.jpg",
   },
   {
     title: "Employer Partnerships",
     copy: "We work with companies and organizations to create recruitment pathways, internships, volunteering programs, and field placements.",
     icon: BriefcaseBusiness,
+    image: "/images/Ajiralink Website Photos/For Institutions and Patners Page/Employer-Patnerships.jpg",
   },
   {
     title: "Career Development Programs",
     copy: "We co-create workshops, mentorship sessions, CV clinics, interview training, and employability programs.",
     icon: BookOpenCheck,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Career-Development-Programs.JPG",
   },
   {
     title: "Digital Platform Integration",
     copy: "We support partnerships that integrate AjiraLink opportunities into other learning and youth development platforms.",
     icon: PanelsTopLeft,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Digital-Platform-Integration.JPG",
   },
   {
     title: "Youth Outreach and Awareness",
     copy: "We collaborate on campaigns, forums, events, career fairs, and digital engagement programs.",
     icon: Megaphone,
+    image:
+      "/images/Ajiralink Website Photos/For Institutions and Patners Page/Youth-Outreach-and-Awareness.jpg",
   },
 ] as const;
 
@@ -278,7 +288,7 @@ export function ForInstitutionsPartnersPageContent() {
         <section className="relative overflow-hidden px-4 pb-12 pt-44 sm:px-6 sm:pt-48 lg:px-8">
           <div className="home-hero-media absolute inset-x-0 -top-10 bottom-0">
             <Image
-              src={images.workshop}
+              src={images.partnersHero}
               alt="Institutions and partners collaborating on youth career readiness"
               fill
               priority
@@ -334,19 +344,18 @@ export function ForInstitutionsPartnersPageContent() {
               whileInView="visible"
               viewport={{ once: true, margin: "-80px" }}
             >
-              {partnershipAreas.map(({ title, copy, icon: Icon }) => (
-                <motion.article
+              {partnershipAreas.map(({ title, copy, icon: Icon, image }, index) => (
+                <SplitImageCard
                   key={title}
-                  className="partners-card group relative min-h-60 overflow-hidden rounded-[1.75rem] border border-slate-200/70 bg-white/85 p-6 shadow-[0_24px_70px_rgba(10,61,145,0.12)] backdrop-blur-2xl transition dark:border-white/15 dark:bg-white/10 dark:shadow-[0_24px_80px_rgba(0,0,0,0.22)]"
-                  variants={fadeUpItem}
-                  whileHover={{
-                    y: -8,
-                    scale: 1.012,
-                    boxShadow: "0 28px 90px rgba(10,61,145,0.18)",
-                  }}
-                >
-                  <IconTile title={title} copy={copy} icon={Icon} />
-                </motion.article>
+                  title={title}
+                  copy={copy}
+                  image={image}
+                  icon={Icon}
+                  index={index}
+                  className="partners-card"
+                  titleClassName="partners-heading"
+                  copyClassName="partners-body"
+                />
               ))}
             </motion.div>
           </div>

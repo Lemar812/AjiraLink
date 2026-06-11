@@ -7,7 +7,7 @@ export const pages = {
     title: "A youth opportunity brand built for trust, dignity, and momentum.",
     description:
       "AjiraLink is a youth-focused digital employment and career development platform connecting students, graduates, and young professionals to opportunity, mentorship, and guidance.",
-    image: images.community,
+    image: images.aboutHero,
     primaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     secondaryCta: { label: "Partner With Us", href: systemRoutes.login },
     sections: [
@@ -35,7 +35,7 @@ export const pages = {
     title: "Verified pathways into jobs, internships, volunteer placements, and field work.",
     description:
       "AjiraLink helps youth discover practical opportunities while redirecting applications and account actions into the existing platform.",
-    image: images.hero,
+    image: images.opportunitiesHero,
     primaryCta: { label: "Browse Opportunities", href: systemRoutes.opportunities },
     secondaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     sections: [
@@ -52,7 +52,7 @@ export const pages = {
     title: "Career readiness for young people preparing to be seen, selected, and trusted.",
     description:
       "AjiraLink connects youth to guidance, mentorship, and career resources that help them move from interest to readiness.",
-    image: images.mentor,
+    image: images.guidanceHero,
     primaryCta: { label: "Access Career Resources", href: systemRoutes.careerResources },
     secondaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     sections: [
@@ -69,7 +69,7 @@ export const pages = {
     title: "Reach early-career talent through a trusted youth opportunity platform.",
     description:
       "AjiraLink helps employers present opportunities to students, graduates, and young professionals while routing posting flows into the existing platform.",
-    image: images.employer,
+    image: images.employersHero,
     primaryCta: { label: "Post an Opportunity", href: systemRoutes.postOpportunity },
     secondaryCta: { label: "Register as Employer", href: systemRoutes.employerRegister },
     sections: [
@@ -86,7 +86,7 @@ export const pages = {
     title: "A modern partnership layer for youth employability programs.",
     description:
       "AjiraLink supports institutions, funders, innovation hubs, and ecosystem partners with a trusted digital front door for youth opportunity.",
-    image: images.workshop,
+    image: images.partnersHero,
     primaryCta: { label: "Partner With Us", href: systemRoutes.login },
     secondaryCta: { label: "See Impact", href: "/impact" },
     sections: [
@@ -103,7 +103,7 @@ export const pages = {
     title: "Measuring reach, trust, partnerships, and youth opportunity growth.",
     description:
       "AjiraLink tracks public momentum through users, youth reached, partners, and ecosystem growth while focusing on meaningful access.",
-    image: images.community,
+    image: images.impactHero,
     primaryCta: { label: "Partner With Us", href: systemRoutes.login },
     secondaryCta: { label: "Create Your Profile", href: systemRoutes.youthRegister },
     sections: [
@@ -141,7 +141,7 @@ export const pages = {
     title: "A focused team building the opportunity layer African youth deserve.",
     description:
       "AjiraLink is shaped by a belief in youth dignity, practical access, technology quality, and partnership-led growth.",
-    image: images.team,
+    image: images.teamHero,
     primaryCta: { label: "Support the Mission", href: "/investors-support-us" },
     secondaryCta: { label: "Contact Us", href: "/contact" },
     sections: [
@@ -158,7 +158,7 @@ export const pages = {
     title: "Support the platform redefining youth opportunity across Africa.",
     description:
       "AjiraLink is building a premium trust layer for youth employment, career development, and partnership-led access.",
-    image: images.employer,
+    image: "/images/Ajiralink Website Photos/Impact Page/National-Recognition.jpg",
     primaryCta: { label: "Contact Us", href: "/contact" },
     secondaryCta: { label: "See Impact", href: "/impact" },
     sections: [
@@ -191,7 +191,7 @@ export const pages = {
     title: "Start a conversation with AjiraLink.",
     description:
       "Reach out for partnerships, employer opportunities, institutional collaboration, support, or youth opportunity campaigns.",
-    image: images.workshop,
+    image: images.contactHero,
     primaryCta: { label: "Email AjiraLink", href: contactDetails.emailHref },
     secondaryCta: { label: "Post an Opportunity", href: systemRoutes.postOpportunity },
     sections: [
