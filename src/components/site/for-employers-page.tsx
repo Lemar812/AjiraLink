@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useInView, useScroll, useSpring } from "framer-motion";
 import type { Variants } from "framer-motion";
 import {
   BadgeCheck,
@@ -16,6 +16,7 @@ import {
   Users,
 } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { ButtonLink } from "@/components/site/button-link";
 import { SplitImageCard } from "@/components/site/cards";
 import { SiteShell } from "@/components/site/site-shell";
@@ -131,6 +132,104 @@ const fadeUpContainer = {
     },
   },
 } satisfies Variants;
+
+function EmployerTimelineStep({
+  step,
+  index,
+  isActive,
+  onActivate,
+}: {
+  step: (typeof employerSteps)[number];
+  index: number;
+  isActive: boolean;
+  onActivate: (index: number) => void;
+}) {
+  const stepRef = useRef<HTMLElement>(null);
+  const isInView = useInView(stepRef, {
+    amount: 0.55,
+    margin: "-18% 0px -32% 0px",
+  });
+  const Icon = step.icon;
+  const cardPosition =
+    index % 2 === 0 ? "lg:col-start-1 lg:row-start-1 lg:pr-3" : "lg:col-start-3 lg:row-start-1 lg:pl-3";
+
+  useEffect(() => {
+    if (isInView) onActivate(index);
+  }, [index, isInView, onActivate]);
+
+  return (
+    <motion.article
+      ref={stepRef}
+      className="relative grid grid-cols-[3.5rem_minmax(0,1fr)] items-center gap-4 lg:grid-cols-[minmax(0,1fr)_5rem_minmax(0,1fr)] lg:gap-6"
+      initial={{ opacity: 0, y: 44 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.28 }}
+      transition={{ duration: 0.65, delay: index * 0.1, ease: "easeOut" }}
+    >
+      <motion.div
+        className={`employers-step col-start-2 rounded-3xl border p-5 backdrop-blur-xl ${cardPosition} ${
+          isActive
+            ? "border-[#FFC727]/70 bg-white shadow-[0_24px_70px_rgba(10,61,145,0.2)] dark:bg-slate-900/95"
+            : "border-slate-200/70 bg-white/80 shadow-[0_14px_44px_rgba(10,61,145,0.08)] dark:border-white/15 dark:bg-white/10"
+        }`}
+        animate={{ scale: isActive ? 1.03 : 1, y: isActive ? -3 : 0 }}
+        transition={{ type: "spring", stiffness: 240, damping: 22 }}
+      >
+        <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400">
+          {step.label}
+        </p>
+        <h3 className="text-xl font-black leading-tight text-slate-950 dark:text-white">{step.title}</h3>
+        <p className="mt-3 text-sm leading-6 text-slate-700 dark:text-slate-300">{step.copy}</p>
+      </motion.div>
+
+      <motion.div
+        className="relative z-10 col-start-1 row-start-1 grid h-14 w-14 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] lg:col-start-2"
+        animate={{
+          scale: isActive ? 1.1 : 1,
+          boxShadow: isActive ? "0 18px 46px rgba(255,199,39,0.42)" : "0 12px 30px rgba(255,199,39,0.22)",
+        }}
+        transition={{ type: "spring", stiffness: 260, damping: 20 }}
+      >
+        <Icon size={24} />
+      </motion.div>
+    </motion.article>
+  );
+}
+
+function EmployerTimeline() {
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const { scrollYProgress } = useScroll({
+    target: timelineRef,
+    offset: ["start 72%", "end 48%"],
+  });
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 24,
+    mass: 0.25,
+  });
+
+  return (
+    <div ref={timelineRef} className="relative space-y-7 py-2 sm:space-y-9 lg:space-y-10">
+      <div className="absolute bottom-7 left-7 top-7 w-1 -translate-x-1/2 overflow-hidden rounded-full bg-slate-200 dark:bg-white/10 lg:left-1/2">
+        <motion.div
+          className="h-full w-full origin-top rounded-full bg-linear-to-b from-[#FFC727] via-[#F59E0B] to-[#0A3D91]"
+          style={{ scaleY: progress }}
+        />
+      </div>
+
+      {employerSteps.map((step, index) => (
+        <EmployerTimelineStep
+          key={step.title}
+          step={step}
+          index={index}
+          isActive={activeIndex === index}
+          onActivate={setActiveIndex}
+        />
+      ))}
+    </div>
+  );
+}
 
 function SectionHeader({ eyebrow, title, copy }: { eyebrow: string; title: string; copy?: string }) {
   return (
@@ -325,33 +424,7 @@ export function ForEmployersPageContent() {
             title="How Employers Use AjiraLink"
             copy="A straightforward pathway to connect with motivated young talent and build sustainable recruitment pipelines."
           />
-          <div className="relative grid gap-4 lg:grid-cols-4">
-            {employerSteps.map(({ label, title, copy, icon: Icon }, index) => (
-              <motion.article
-                key={title}
-                className="employers-step relative rounded-3xl border border-slate-200/70 bg-white/85 p-5 dark:border-white/15 dark:bg-white/10"
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.55, delay: index * 0.08, ease: "easeOut" }}
-                whileHover={{ y: -6 }}
-              >
-                <div className="mb-4 flex items-center gap-4">
-                  <motion.div
-                    className="relative z-10 grid h-14 w-14 shrink-0 place-items-center rounded-2xl bg-[#FFC727] text-[#0A3D91] shadow-[0_16px_40px_rgba(255,199,39,0.22)]"
-                    whileHover={{ scale: 1.08 }}
-                  >
-                    <Icon size={24} />
-                  </motion.div>
-                  <h3 className="text-xl font-black leading-tight text-slate-950 dark:text-white">{title}</h3>
-                </div>
-                <p className="mb-2 text-xs font-bold uppercase tracking-[0.2em] text-amber-600 dark:text-amber-400">
-                  {label}
-                </p>
-                <p className="text-sm leading-6 text-slate-700 dark:text-slate-300">{copy}</p>
-              </motion.article>
-            ))}
-          </div>
+          <EmployerTimeline />
         </div>
       </section>
 

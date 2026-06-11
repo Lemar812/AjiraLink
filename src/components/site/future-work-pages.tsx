@@ -583,6 +583,7 @@ function ContactQuickPanel() {
 
 export function ContactPageContent() {
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [mailStatus, setMailStatus] = useState<string | null>(null);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -608,7 +609,10 @@ export function ContactPageContent() {
 
     setErrors(nextErrors);
 
-    if (Object.keys(nextErrors).length > 0) return;
+    if (Object.keys(nextErrors).length > 0) {
+      setMailStatus(null);
+      return;
+    }
 
     const subject = encodeURIComponent(`New AjiraLink Contact Form Submission from ${fullName}`);
     const body = encodeURIComponent(
@@ -619,7 +623,18 @@ export function ContactPageContent() {
         `Message:\n${message}`,
     );
 
-    window.location.href = `mailto:linkajira@gmail.com?subject=${subject}&body=${body}`;
+    setMailStatus("Opening your email client to send message...");
+
+    const mailtoLink = document.createElement("a");
+    mailtoLink.href = `mailto:linkajira@gmail.com?subject=${subject}&body=${body}`;
+    mailtoLink.target = "_blank";
+    mailtoLink.rel = "noopener noreferrer";
+    mailtoLink.style.position = "fixed";
+    mailtoLink.style.left = "-9999px";
+    mailtoLink.setAttribute("aria-hidden", "true");
+    document.body.appendChild(mailtoLink);
+    mailtoLink.click();
+    mailtoLink.remove();
   }
 
   const fieldClass =
@@ -761,6 +776,17 @@ export function ContactPageContent() {
               Send Message
               <Send size={16} />
             </button>
+            {mailStatus ? (
+              <motion.p
+                role="status"
+                aria-live="polite"
+                className="next-page-success mt-4 rounded-2xl px-4 py-3 text-sm font-bold"
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+              >
+                {mailStatus}
+              </motion.p>
+            ) : null}
           </motion.form>
         </div>
       </section>

@@ -1037,3 +1037,9 @@ html[data-theme="light"] .next-page-submit-error {
   background: rgba(220, 38, 38, 0.1);
   color: #b91c1c;
 }
+
+/* Keep faces, hands, and action details inside every cropped card or banner frame. */
+img.object-cover {
+  object-fit: cover;
+  object-position: center 20% !important;
+}

@@ -111,7 +111,7 @@ export function SplitImageCard({
   className,
   titleClassName = "text-slate-950 dark:text-white",
   copyClassName = "text-slate-700 dark:text-slate-300",
-  imageClassName = "object-cover object-top",
+  imageClassName = "object-cover object-[center_20%]",
 }: SplitImageCardProps) {
   const card = (
     <motion.article

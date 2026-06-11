@@ -203,7 +203,7 @@ export function OpportunitiesPageContent() {
                 className="opportunity-card"
                 titleClassName="about-card-title"
                 copyClassName="about-card-copy"
-                imageClassName="object-cover object-top"
+                imageClassName="object-cover object-[center_20%]"
               />
             ))}
           </div>
